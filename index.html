@@ -145,7 +145,7 @@
 
 <header>
   <div class="brand"><span>📍</span><span>진로모아커리어센터 · MOA FORMULA</span></div>
-  <h1>제안서 생성기</h1>
+  <h1 id="header-title" style="cursor:pointer" title="홈으로">제안서 생성기</h1>
 </header>
 
 <div id="app">불러오는 중...</div>
@@ -154,6 +154,11 @@
 const app = document.getElementById('app');
 const params = new URLSearchParams(location.search);
 let TEACHER_ID = (params.get('t') || '').trim().toLowerCase().replace(/[^a-z0-9가-힣_-]/g, '');
+
+document.getElementById('header-title').addEventListener('click', () => {
+  if(!TEACHER_ID) return;
+  location.href = location.pathname + '?t=' + encodeURIComponent(TEACHER_ID);
+});
 let CONFIG = null;
 
 function escapeHtml(s){
