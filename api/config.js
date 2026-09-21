@@ -15,6 +15,8 @@ function safeTeacherId(raw) {
 
 const DEFAULT_CONFIG = {
   instructorIntro: "항공승무원 12년, 진로·취업교육 16년의 현장 경험을 압축한 코칭 체계 'MOA FORMULA(면접의 공식)' — 이를 자소서 첨삭과 모의면접, 두 AI 프로그램에 담았습니다. 시간이 짧아도 학생 손에 결과물이 남고, 답변을 다듬어가는 과정에서 태도와 자신감까지 달라집니다 — 저희가 지키는 기준입니다.",
+  basePricePerHour: "17만원",
+  aiSystemPricePerStudent: "7,500원",
   tiers: [
     {
       name: "집중형",
@@ -36,7 +38,7 @@ const DEFAULT_CONFIG = {
       name: "심화형",
       duration: "4회 이상",
       tag: "성장 과정을 담은 연속 프로그램",
-      content: "자기이해 진단부터\n모의면접 1차→2차 반복,\n포부 설계까지 전 과정",
+      content: "자기이해 진단부터\nAI 코칭 시스템(자소서 첨삭·모의면접)\n전체 이용 + 반복 피드백,\n포부 설계까지 전 과정",
       output: "완성 자소서 + 1차/2차 비교\n피드백 + 만족도 데이터",
       target: "청년성장프로젝트 등\n정식 취업지원사업"
     }
