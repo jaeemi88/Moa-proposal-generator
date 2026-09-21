@@ -304,6 +304,11 @@ function renderProposalPreview(schoolName, contactPerson){
       <div class="p-common">
         ${c.commonPoints.map(p => `<div>${nl2br(p)}</div>`).join('')}
       </div>
+      <div class="p-section-title">예상 비용 안내</div>
+      <div class="p-common" style="flex-direction:column;gap:6px">
+        <div><b>특강 강사료</b> — 시간당 ${escapeHtml(c.basePricePerHour || '')} (구성별 소요 시간 기준, 협의 가능)</div>
+        <div><b>AI 코칭 시스템 이용료</b> — 학생 1인당 ${escapeHtml(c.aiSystemPricePerStudent || '')} (자소서 첨삭·모의면접 AI 프로그램, 개인별 결과 리포트 포함 · 심화형 구성에 기본 포함)</div>
+      </div>
       <div class="p-flex">
         <div class="l1">${nl2br(c.flexNote)}</div>
       </div>
@@ -364,6 +369,12 @@ function renderSettings(){
 
       <label>강사 소개 문구</label>
       <textarea id="edit-intro" style="min-height:100px">${escapeHtml(c.instructorIntro)}</textarea>
+
+      <label>특강 강사료 (시간당)</label>
+      <input type="text" id="edit-baseprice" value="${escapeHtml(c.basePricePerHour || '')}" placeholder="예: 17만원" style="margin-bottom:14px">
+
+      <label>AI 코칭 시스템 이용료 (학생 1인당)</label>
+      <input type="text" id="edit-aiprice" value="${escapeHtml(c.aiSystemPricePerStudent || '')}" placeholder="예: 7,500원" style="margin-bottom:14px">
 
       <div id="tiersEditArea"></div>
 
@@ -432,6 +443,8 @@ function renderSettings(){
     }));
     const newConfig = {
       instructorIntro: document.getElementById('edit-intro').value,
+      basePricePerHour: document.getElementById('edit-baseprice').value.trim(),
+      aiSystemPricePerStudent: document.getElementById('edit-aiprice').value.trim(),
       tiers: newTiers,
       commonPoints: document.getElementById('edit-common').value.split('\n').map(s => s.trim()).filter(Boolean),
       flexNote: document.getElementById('edit-flex').value,
