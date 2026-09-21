@@ -104,6 +104,8 @@
     box-shadow:0 4px 24px rgba(0,0,0,0.08);
     display:flex;
     flex-direction:column;
+    word-break:keep-all;
+    overflow-wrap:break-word;
   }
   #proposalPage .p-header{background:var(--navy);padding:34px 44px 28px;display:flex;flex-direction:column;gap:6px}
   #proposalPage .p-brand{font-size:13px;font-weight:700;color:var(--cream)}
@@ -295,7 +297,7 @@ function renderProposalPreview(schoolName, contactPerson){
       <div class="p-header">
         <div class="p-brand">진로모아커리어센터 · MOA&nbsp;FORMULA</div>
         <div class="p-title">자소서·면접 AI 코칭 프로그램 제안서${titleSuffix}</div>
-        <div class="p-sub">교육 시간 안에 결과물까지 완성되는 취업 코칭${contactPerson ? ' — ' + escapeHtml(contactPerson) + '님께' : ' &mdash;&nbsp;학교&middot;기관&nbsp;특강용'}</div>
+        <div class="p-sub">교육 시간 안에 결과물까지 완성되는 취업 코칭${contactPerson ? ' — ' + escapeHtml(contactPerson) + '님께' : ' — 학교·기관 특강용'}</div>
       </div>
       <div class="p-intro">${nl2br(c.instructorIntro)}</div>
       <div class="p-zero">
