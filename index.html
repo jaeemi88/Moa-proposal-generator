@@ -110,6 +110,9 @@
   #proposalPage .p-title{font-size:27px;font-weight:900;color:#fff;line-height:1.3}
   #proposalPage .p-sub{font-size:14px;color:#fff;opacity:0.85}
   #proposalPage .p-intro{margin:26px 44px 0;font-size:13px;line-height:1.7;background:#F4F6FB;border-radius:10px;padding:14px 18px;white-space:pre-wrap}
+  #proposalPage .p-zero{margin:14px 44px 0;background:#B6DB00;border-radius:10px;padding:14px 18px}
+  #proposalPage .p-zero-badge{font-size:13px;font-weight:900;color:#10288C;margin-bottom:6px}
+  #proposalPage .p-zero-text{font-size:13px;font-weight:700;color:#10288C;line-height:1.7;white-space:pre-wrap}
   #proposalPage .p-section-title{padding:22px 44px 0;font-size:16px;font-weight:800;color:var(--navy)}
   #proposalPage .p-tiers{padding:14px 44px 0;display:flex;flex-direction:column;gap:14px}
   #proposalPage .p-tier{border-radius:12px;border:1px solid var(--line);overflow:hidden}
@@ -135,6 +138,7 @@
     #proposalPage .p-header{padding:24px 20px}
     #proposalPage .p-title{font-size:20px}
     #proposalPage .p-intro{margin:20px 20px 0;padding:12px 14px}
+    #proposalPage .p-zero{margin:12px 20px 0;padding:12px 14px}
     #proposalPage .p-section-title{padding:18px 20px 0;font-size:15px}
     #proposalPage .p-tiers{padding:12px 20px 0}
     #proposalPage .p-tier-body{flex-direction:column;gap:14px}
@@ -294,6 +298,10 @@ function renderProposalPreview(schoolName, contactPerson){
         <div class="p-sub">교육 시간 안에 결과물까지 완성되는 취업 코칭${contactPerson ? ' — ' + escapeHtml(contactPerson) + '님께' : ' — 학교·기관 특강용'}</div>
       </div>
       <div class="p-intro">${nl2br(c.instructorIntro)}</div>
+      <div class="p-zero">
+        <div class="p-zero-badge">✋ 업무 부담 ZERO</div>
+        <div class="p-zero-text">${nl2br(c.zeroEffortNote)}</div>
+      </div>
       <div class="p-section-title">교육 시간에 맞춘 3가지 구성</div>
       <div class="p-tiers">
         ${c.tiers.map((tier, i) => {
@@ -384,6 +392,9 @@ function renderSettings(){
       <label>강사 소개 문구</label>
       <textarea id="edit-intro" style="min-height:100px">${escapeHtml(c.instructorIntro)}</textarea>
 
+      <label>"업무 부담 ZERO" 강조 문구 (선생님 개입 없음을 강조)</label>
+      <textarea id="edit-zeroeffort" style="min-height:70px">${escapeHtml(c.zeroEffortNote || '')}</textarea>
+
       <label>특강 강사료 (시간당)</label>
       <input type="text" id="edit-baseprice" value="${escapeHtml(c.basePricePerHour || '')}" placeholder="예: 17만원" style="margin-bottom:14px">
 
@@ -457,6 +468,7 @@ function renderSettings(){
     }));
     const newConfig = {
       instructorIntro: document.getElementById('edit-intro').value,
+      zeroEffortNote: document.getElementById('edit-zeroeffort').value,
       basePricePerHour: document.getElementById('edit-baseprice').value.trim(),
       aiSystemPricePerStudent: document.getElementById('edit-aiprice').value.trim(),
       tiers: newTiers,
