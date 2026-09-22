@@ -2,515 +2,284 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>제안서 생성기 — 진로모아커리어센터</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>MOA FORMULA 허브</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MOA FORMULA">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#11308C">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap">
 <style>
-  :root{
-    --navy:#10288C; --violet:#6338EE; --blue:#274DEA; --lime:#B6DB00; --cream:#EAF6AD;
-    --line:#E2E5EE; --muted:#666; --ink:#222;
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family:"Pretendard","Malgun Gothic","맑은 고딕",-apple-system,sans-serif;
-    background:#F4F6FB;
-    color:var(--ink);
-  }
-  header{
-    background:var(--navy);
-    color:#fff;
-    padding:20px 24px;
-  }
-  header .brand{
-    font-size:12px;
-    color:var(--lime);
-    font-weight:700;
-    display:flex;
-    align-items:center;
-    gap:6px;
-    margin-bottom:4px;
-  }
-  header h1{
-    font-size:20px;
-    margin:0;
-    font-weight:700;
-  }
-  #app{
-    max-width:1100px;
-    margin:0 auto;
-    padding:24px;
-  }
-  .card{
-    background:#fff;
-    border-radius:12px;
-    padding:22px 24px;
-    margin-bottom:16px;
-    border:1px solid var(--line);
-  }
-  .card h2{
-    font-size:16px;
-    margin:0 0 14px;
-    color:var(--navy);
-  }
-  label{
-    display:block;
-    font-size:13px;
-    font-weight:700;
-    color:#444;
-    margin:14px 0 6px;
-  }
-  label:first-of-type{margin-top:0}
-  input[type="text"], textarea{
-    width:100%;
-    padding:10px 12px;
-    border:1px solid var(--line);
-    border-radius:8px;
-    font-family:inherit;
-    font-size:14px;
-    resize:vertical;
-  }
-  textarea{min-height:70px; line-height:1.6}
-  .sub{font-size:12px;color:var(--muted);margin-top:-2px;margin-bottom:6px}
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:11px 18px;
-    border-radius:8px;
-    border:none;
-    font-size:14px;
-    font-weight:700;
-    cursor:pointer;
-    font-family:inherit;
-  }
-  .btn-primary{background:var(--navy);color:#fff}
-  .btn-primary:hover{opacity:0.9}
-  .btn-secondary{background:#F4F6FB;color:var(--navy);border:1px solid var(--line)}
-  .btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-  .tier-edit-block{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:12px}
-  .tier-edit-block .tier-head{display:flex;gap:10px;margin-bottom:8px}
-  .tier-edit-block .tier-head input{flex:1}
-  .status-msg{font-size:13px;margin-top:10px;padding:8px 12px;border-radius:8px;display:none}
-  .status-msg.ok{background:#EAF3DE;color:#27500A;display:block}
-  .status-msg.error{background:#FCEBEB;color:#791F1F;display:block}
-
-  /* ---------- 미리보기(제안서) ---------- */
-  #previewWrap{display:flex;justify-content:center;padding:20px 0}
-  #proposalPage{
-    width:794px;
-    min-height:1123px;
-    background:#fff;
-    box-shadow:0 4px 24px rgba(0,0,0,0.08);
-    display:flex;
-    flex-direction:column;
-    word-break:keep-all;
-    overflow-wrap:break-word;
-  }
-  #proposalPage .p-header{background:var(--navy);padding:34px 44px 28px;display:flex;flex-direction:column;gap:6px}
-  #proposalPage .p-brand{font-size:13px;font-weight:700;color:var(--cream)}
-  #proposalPage .p-title{font-size:27px;font-weight:900;color:#fff;line-height:1.3}
-  #proposalPage .p-sub{font-size:14px;color:#fff;opacity:0.85}
-  #proposalPage .p-intro{margin:26px 44px 0;font-size:13px;line-height:1.7;background:#F4F6FB;border-radius:10px;padding:14px 18px;white-space:pre-wrap}
-  #proposalPage .p-zero{margin:14px 44px 0;background:#B6DB00;border-radius:10px;padding:14px 18px}
-  #proposalPage .p-zero-badge{font-size:13px;font-weight:900;color:#10288C;margin-bottom:6px}
-  #proposalPage .p-zero-text{font-size:13px;font-weight:700;color:#10288C;line-height:1.7;white-space:pre-wrap}
-  #proposalPage .p-section-title{padding:22px 44px 0;font-size:16px;font-weight:800;color:var(--navy)}
-  #proposalPage .p-tiers{padding:14px 44px 0;display:flex;flex-direction:column;gap:14px}
-  #proposalPage .p-tier{border-radius:12px;border:1px solid var(--line);overflow:hidden}
-  #proposalPage .p-tier-head{padding:10px 18px;display:flex;align-items:center;justify-content:space-between}
-  #proposalPage .p-tier-head .name{font-size:15px;font-weight:800;color:#fff}
-  #proposalPage .p-tier-head .tag{font-size:12px;color:var(--cream)}
-  #proposalPage .p-tier-body{padding:14px 18px;display:flex;gap:24px}
-  #proposalPage .p-tier-col{flex:1}
-  #proposalPage .p-tier-col .col-label{font-size:12px;font-weight:700;color:#666;margin-bottom:4px}
-  #proposalPage .p-tier-col .col-val{font-size:12.5px;color:#222;line-height:1.7;white-space:pre-wrap}
-  #proposalPage .p-common{padding:10px 44px 0;display:flex;gap:12px}
-  #proposalPage .p-common div{flex:1;background:#F4F6FB;border-radius:10px;padding:12px 14px;font-size:12.5px;color:#222;line-height:1.6}
-  #proposalPage .p-flex{margin:22px 44px 0;padding-top:18px;border-top:1px solid var(--line);text-align:center}
-  #proposalPage .p-flex .l1{font-size:13px;color:var(--navy);font-weight:700;line-height:1.7}
-  #proposalPage .p-flex .l2{font-size:12.5px;color:#555;line-height:1.7;margin-top:2px}
-  #proposalPage .p-footer{margin-top:auto;background:var(--navy);padding:22px 44px;display:flex;align-items:center;justify-content:space-between}
-  #proposalPage .p-footer .name{font-size:14px;font-weight:800;color:#fff}
-  #proposalPage .p-footer .cred{font-size:12px;color:var(--cream);margin-top:2px}
-  #proposalPage .p-footer .contact-label{font-size:12px;color:#fff;opacity:0.85;text-align:right}
-  #proposalPage .p-footer .contact-val{font-size:13px;font-weight:700;color:#fff;text-align:right}
-
-  @media (max-width: 640px){
-    #proposalPage .p-header{padding:24px 20px}
-    #proposalPage .p-title{font-size:20px}
-    #proposalPage .p-intro{margin:20px 20px 0;padding:12px 14px}
-    #proposalPage .p-zero{margin:12px 20px 0;padding:12px 14px}
-    #proposalPage .p-section-title{padding:18px 20px 0;font-size:15px}
-    #proposalPage .p-tiers{padding:12px 20px 0}
-    #proposalPage .p-tier-body{flex-direction:column;gap:14px}
-    #proposalPage .p-common{padding:10px 20px 0;flex-direction:column;gap:10px}
-    #proposalPage .p-flex{margin:18px 20px 0}
-    #proposalPage .p-footer{padding:18px 20px;flex-wrap:wrap;gap:10px}
-    #proposalPage .p-footer .contact-label,
-    #proposalPage .p-footer .contact-val{text-align:left}
-  }
-
-  @media print{
-    header, #controlsPanel, .no-print{display:none !important}
-    body{background:#fff}
-    #app{max-width:none;padding:0;margin:0}
-    #previewWrap{padding:0}
-    #proposalPage{box-shadow:none}
-    @page{size:A4;margin:0}
-  }
+:root{
+--navy:#11308C; --violet:#643DF2; --blue:#295BF2; --lime:#C0D904; --cream:#EAF2AE;
+--olive:#3D4500; --charcoal:#1F2433; --coral:#D9572B; --coral-soft:#FCE9E1; --coral-ink:#8A3517;
+--bg:#F4F6FB; --line:#E2E5EE; --ink:#1A1A2E; --muted:#666;
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color: transparent;}
+html,body{margin:0;padding:0}
+body{
+font-family:'Noto Sans KR',-apple-system,sans-serif;
+background:var(--bg);
+color:var(--ink);
+padding-bottom:40px;
+word-break:keep-all;
+overflow-wrap:break-word;
+}
+header{
+background:var(--navy);
+padding:28px 20px 22px;
+display:flex;
+flex-direction:column;
+gap:4px;
+}
+header .brand{
+display:flex;
+align-items:center;
+gap:8px;
+font-size:13px;
+font-weight:700;
+color:var(--lime);
+}
+header .brand img{width:22px;height:22px}
+header h1{
+margin:6px 0 0;
+font-size:22px;
+font-weight:900;
+color:#fff;
+}
+header p{
+margin:2px 0 0;
+font-size:13px;
+color:rgba(255,255,255,0.75);
+}
+main{
+max-width:520px;
+margin:0 auto;
+padding:18px 16px 0;
+}
+.app-card{
+background:#fff;
+border-radius:14px;
+border:1px solid var(--line);
+padding:16px 18px;
+margin-bottom:14px;
+}
+.app-card .app-title{
+display:flex;
+align-items:center;
+gap:8px;
+font-size:16px;
+font-weight:800;
+color:var(--navy);
+margin-bottom:12px;
+}
+.role-row{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+}
+a.role-btn{
+flex:1;
+min-width:110px;
+text-align:center;
+padding:12px 10px;
+border-radius:10px;
+font-size:14px;
+font-weight:700;
+text-decoration:none;
+color:#fff;
+}
+.app-card{--ac:var(--navy);--at:var(--navy);--ab:var(--navy);border-left:5px solid var(--ac)}
+.c-resume{--ac:var(--violet);--at:var(--violet);--ab:var(--violet)}
+.c-interview{--ac:var(--blue);--at:var(--blue);--ab:var(--blue)}
+.c-tracker{--ac:var(--lime);--at:var(--olive);--ab:var(--lime)}
+.c-board{--ac:var(--charcoal);--at:var(--charcoal);--ab:var(--charcoal)}
+.c-proposal{--ac:var(--coral);--at:var(--coral);--ab:var(--coral)}
+.c-qbank{--ac:var(--coral-soft);--at:var(--coral-ink);--ab:var(--coral-ink)}
+.c-master{--ac:var(--charcoal);--at:var(--charcoal);--ab:var(--charcoal)}
+.app-card .app-title{color:var(--at)}
+.role-btn.student{background:var(--ac);color:#fff;border:2px solid var(--ac)}
+.c-tracker .role-btn.student{color:var(--olive)}
+.c-qbank .role-btn.student{color:var(--coral-ink)}
+.role-btn.teacher{background:#fff;color:var(--at);border:2px solid var(--ab)}
+.role-btn.teacher::before{content:"";display:inline-block;width:13px;height:13px;margin-right:6px;vertical-align:-1px;background:currentColor;
+-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='11' width='14' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4'/%3E%3C/svg%3E") center/contain no-repeat;
+mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='11' width='14' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4'/%3E%3C/svg%3E") center/contain no-repeat}
+.role-legend{display:flex;gap:14px;font-size:12px;color:var(--muted);margin:4px 4px 0}
+.role-legend span{display:flex;align-items:center;gap:6px}
+.role-legend i{display:inline-block;width:22px;height:12px;border-radius:4px}
+section.group-label{
+font-size:13px;
+font-weight:800;
+color:var(--muted);
+margin:22px 4px 10px;
+letter-spacing:0.02em;
+}
+footer{
+text-align:center;
+font-size:12px;
+color:var(--muted);
+padding:24px 16px 8px;
+}
 </style>
 </head>
 <body>
-
 <header>
-  <div class="brand"><span>📍</span><span>진로모아커리어센터 · MOA&nbsp;FORMULA</span></div>
-  <h1 id="header-title" style="cursor:pointer" title="홈으로">제안서 생성기</h1>
+<div class="brand"><img id="brandLogo" alt=""><span>진로모아커리어센터 · MOA FORMULA</span></div>
+<h1>우리 앱 모음</h1>
+<p>화면 아래 "홈 화면에 추가"로 저장해두면 앱처럼 바로 열 수 있어요</p>
 </header>
-
-<div id="app">불러오는 중...</div>
-
+<main>
+<section class="group-label">학생·강사용 도구</section>
+<div class="role-legend" style="margin-bottom:10px"><span><i style="background:var(--navy)"></i>학생용</span><span><i style="border:2px solid var(--navy)"></i>강사용 (잠금)</span></div>
+<div class="app-card c-resume">
+<div class="app-title">📝 자소서·이력서 첨삭</div>
+<div class="role-row">
+<a class="role-btn student" href="https://resume-feedback-app-phi.vercel.app/?t=jinromoa">학생용</a>
+<a class="role-btn teacher" href="https://resume-feedback-app-phi.vercel.app/?admin=1&t=jinromoa">강사용</a>
+</div>
+</div>
+<div class="app-card c-interview">
+<div class="app-title">🎤 모의면접 시뮬레이터</div>
+<div class="role-row">
+<a class="role-btn student" href="https://moa-interview-app.vercel.app/?t=jinromoa">학생용</a>
+<a class="role-btn teacher" href="https://moa-interview-app.vercel.app/?admin=1&t=jinromoa">강사용</a>
+</div>
+</div>
+<div class="app-card c-tracker">
+<div class="app-title">📊 수강생 사후관리 트래커</div>
+<div class="role-row">
+<a class="role-btn teacher" href="https://moa-tracker-tau.vercel.app/?t=jinromoa">강사용 (전체)</a>
+</div>
+</div>
+<section class="group-label">운영 도구</section>
+<div class="app-card c-board">
+<div class="app-title">🗓️ 진로모아 운영보드</div>
+<div class="role-row">
+<a class="role-btn teacher" href="https://jinromoa-board.vercel.app/">바로가기</a>
+</div>
+</div>
+<section class="group-label">제작 도구</section>
+<div class="app-card c-proposal">
+<div class="app-title">📄 제안서 생성기</div>
+<div class="role-row">
+<a class="role-btn teacher" href="https://moa-proposal-generator.vercel.app/?t=jinromoa">바로가기</a>
+</div>
+</div>
+<div class="app-card c-qbank">
+<div class="app-title">🧠 질문은행 자동확장</div>
+<div class="role-row">
+<a class="role-btn teacher" href="https://claude.ai/artifact/AYt1cfU5crrPkxFTJak9mj">바로가기</a>
+</div>
+</div>
+<section class="group-label">참고 자료</section>
+<div class="app-card" style="padding:0;overflow:hidden">
+<details>
+<summary style="cursor:pointer;padding:16px 18px;font-weight:800;font-size:16px;color:var(--navy)">📋 전체 기능 목록 (눌러서 펼치기)</summary>
+<div style="padding:0 18px 18px;font-size:12.5px;line-height:1.8;color:#333">
+<b style="display:block;margin:14px 0 6px;color:var(--violet);font-size:14px">📝 자소서·이력서 첨삭</b>
+<div style="margin-bottom:4px"><b>학생용</b> — 여러 문항 한 번에 제출, 문서유형·전공·소속기관 선택, 채용공고 매칭, 자가진단·Before→After, 확인코드로 결과조회, 제출횟수 제한</div>
+<div><b>강사용</b> — QR코드, 검수대기함(구조진단·감점요인·AI문구감지 등), 프리셋 관리, 완료목록(필터·정렬), 알림설정(이메일·재도전·트래커연동)</div>
+<b style="display:block;margin:14px 0 6px;color:var(--blue);font-size:14px">🎤 모의면접 시뮬레이터</b>
+<div style="margin-bottom:4px"><b>학생용</b> — 6개 유형×6문항, 질문별 즉시 피드백, 재도전 범위, 전공·직무 세트 선택, 직무특화질문 AI생성, 카테고리별/전체모아 보내기 선택</div>
+<div><b>강사용</b> — 검수대기함, 질문 편집, 평가기준 프리셋, 알림설정(이메일 개별저장·검토방식즉시저장·재도전·기관명)</div>
+<b style="display:block;margin:14px 0 6px;color:var(--olive);font-size:14px">📊 수강생 사후관리 트래커</b>
+<div>개인관리(학생카드+상담이력 자동기록), 진로모아관리(기관·전공별 실적, QR 만족도설문 자동집계)</div>
+<b style="display:block;margin:14px 0 6px;color:var(--charcoal);font-size:14px">🗓️ 진로모아 운영보드</b>
+<div>강의·달력·파견강사·완료 탭으로 강의 일정 관리, 새 강의 등록, 강사 등록 링크 보내기, 목록 문서로 보기, 엑셀(CSV) 내보내기, 백업 저장·불러오기</div>
+<b style="display:block;margin:14px 0 6px;color:var(--coral);font-size:14px">📄 제안서 생성기</b>
+<div>학교명만 입력하면 A4 제안서 자동생성(3단계 구성), 기본값 편집 가능, 인쇄/PDF 저장</div>
+<div style="margin-top:14px;padding:12px 14px;background:#FCEBEB;border-radius:8px">
+<b style="color:#A32D2D">자주 헷갈리는 부분</b><br>
+· "제출"은 질문 하나씩, "강사에게 넘기기"만 선택 가능<br>
+· 재도전 설정은 두 앱 각각 따로 설정해야 함<br>
+· 만족도 설문은 기관명을 넣어야만 나타남 (소급 적용 안 됨)<br>
+· 강사 알림 이메일은 "개별 저장" 버튼을 따로 눌러야 함
+</div>
+</div>
+</details>
+</div>
+<div class="app-card" style="padding:0;overflow:hidden">
+<details>
+<summary style="cursor:pointer;padding:16px 18px;font-weight:800;font-size:16px;color:var(--navy)">📊 강사용 기능 안내 (눌러서 펼치기)</summary>
+<div style="padding:0 18px 18px">
+<div style="display:flex;align-items:center;gap:8px;margin:14px 0 10px">
+<span style="width:10px;height:10px;border-radius:50%;background:var(--violet);display:inline-block"></span>
+<b style="font-size:14px">📝 자소서·이력서 첨삭 — 강사용</b>
+</div>
+<table style="width:100%;border-collapse:separate;border-spacing:0;border-radius:10px;overflow:hidden;border:1px solid var(--line);table-layout:fixed;margin-bottom:18px">
+<thead>
+<tr style="background:var(--violet)">
+<th style="text-align:left;font-size:12px;color:#fff;padding:10px 12px;width:34%">기능</th>
+<th style="text-align:left;font-size:12px;color:#fff;padding:10px 12px">설명</th>
+</tr>
+</thead>
+<tbody id="resumeGuideBody"></tbody>
+</table>
+<div style="display:flex;align-items:center;gap:8px;margin:14px 0 10px">
+<span style="width:10px;height:10px;border-radius:50%;background:var(--blue);display:inline-block"></span>
+<b style="font-size:14px">🎤 모의면접 시뮬레이터 — 강사용</b>
+</div>
+<table style="width:100%;border-collapse:separate;border-spacing:0;border-radius:10px;overflow:hidden;border:1px solid var(--line);table-layout:fixed">
+<thead>
+<tr style="background:var(--blue)">
+<th style="text-align:left;font-size:12px;color:#fff;padding:10px 12px;width:34%">기능</th>
+<th style="text-align:left;font-size:12px;color:#fff;padding:10px 12px">설명</th>
+</tr>
+</thead>
+<tbody id="interviewGuideBody"></tbody>
+</table>
+</div>
+</details>
+</div>
+<section class="group-label">원장님 전용 관리 화면</section>
+<div class="app-card c-master">
+<div class="app-title">🎯 강사 승인 · 초대코드 관리</div>
+<div class="role-row">
+<a class="role-btn teacher" href="https://resume-feedback-app-phi.vercel.app/?master=1">자소서 앱에서</a>
+<a class="role-btn teacher" href="https://moa-interview-app.vercel.app/?master=1">모의면접 앱에서</a>
+<a class="role-btn teacher" href="https://moa-tracker-tau.vercel.app/?master=1">트래커 앱에서</a>
+</div>
+</div>
+</main>
+<footer>진로모아커리어센터 · jinromoa 코드로 통일된 링크입니다</footer>
 <script>
-const app = document.getElementById('app');
-const params = new URLSearchParams(location.search);
-let TEACHER_ID = (params.get('t') || '').trim().toLowerCase().replace(/[^a-z0-9가-힣_-]/g, '');
-
-document.getElementById('header-title').addEventListener('click', () => {
-  if(!TEACHER_ID) return;
-  location.href = location.pathname + '?t=' + encodeURIComponent(TEACHER_ID);
-});
-let CONFIG = null;
-
-function escapeHtml(s){
-  return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
-function nl2br(s){ return escapeHtml(s).replace(/\n/g, '<br>'); }
-
-async function api(path, options){
-  const sep = path.includes('?') ? '&' : '?';
-  const res = await fetch(path + sep + 't=' + encodeURIComponent(TEACHER_ID), options);
-  const data = await res.json();
-  if(!res.ok) throw new Error(data.error || '요청에 실패했습니다.');
-  return data;
-}
-
-/* ---------- 강사 코드 설정 화면 ---------- */
-function renderTeacherSetup(){
-  app.innerHTML = `
-    <div class="card" style="max-width:560px;margin:40px auto">
-      <h2>강사 코드 설정</h2>
-      <p style="font-size:13px;color:var(--muted);line-height:1.7">여러 강사님이 함께 쓰기 때문에 자료가 섞이지 않도록 <b>본인만의 고유 코드</b>가 필요합니다. 이미 다른 앱(모의면접·자소서·트래커)에서 등록하신 코드가 있다면 그대로 입력하시면 초대코드 없이 바로 통과됩니다.</p>
-      <label>강사 이름</label>
-      <input type="text" id="teacherNameInput" placeholder="예: 차재임">
-      <label>강사 코드</label>
-      <input type="text" id="teacherCodeInput" placeholder="예: jinromoa">
-      <label>초대코드 <span style="font-weight:400;color:var(--muted)">(처음 등록하는 코드일 때만 필요)</span></label>
-      <input type="text" id="teacherInviteInput" placeholder="원장님께 받은 초대코드">
-      <div class="btn-row"><button class="btn btn-primary" id="setTeacherBtn">시작하기</button></div>
-      <div id="setupError" class="status-msg error" style="display:none"></div>
-    </div>
-  `;
-  document.getElementById('setTeacherBtn').addEventListener('click', async () => {
-    const code = document.getElementById('teacherCodeInput').value.trim().toLowerCase().replace(/[^a-z0-9가-힣_-]/g, '');
-    const name = document.getElementById('teacherNameInput').value.trim();
-    const inviteCode = document.getElementById('teacherInviteInput').value.trim();
-    const errEl = document.getElementById('setupError');
-    errEl.style.display = 'none';
-    if(!code){ errEl.textContent = '코드를 입력해 주세요.'; errEl.style.display = 'block'; return; }
-    try{
-      const res = await fetch('/api/teacher-registry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code, name, inviteCode, app: '제안서 생성기' })
-      });
-      const data = await res.json();
-      if(!res.ok) throw new Error(data.error || '등록에 실패했습니다.');
-      const p = new URLSearchParams(location.search);
-      p.set('t', code);
-      location.href = location.pathname + '?' + p.toString();
-    }catch(err){
-      errEl.textContent = err.message;
-      errEl.style.display = 'block';
-    }
-  });
-}
-
-/* ---------- 관리자(원장님) 강사목록/초대코드 화면 ---------- */
-function renderMasterScreen(){
-  app.innerHTML = `
-    <div class="card" style="max-width:640px;margin:40px auto">
-      <h2>🎯 새 초대코드 발급</h2>
-      <p class="sub">원장님만 보실 수 있는 화면입니다. 세 앱과 초대코드 목록을 공유해요.</p>
-      <label>관리자 비밀번호</label>
-      <input type="text" id="masterPasswordInput">
-      <div class="btn-row"><button class="btn btn-primary" id="genInviteBtn">초대코드 발급하기</button></div>
-      <div id="genInviteStatus" class="status-msg" style="display:none"></div>
-    </div>
-    <div class="card" style="max-width:640px;margin:0 auto 40px">
-      <h2>승인된 강사 목록</h2>
-      <div class="btn-row"><button class="btn btn-secondary" id="listTeachersBtn">강사 목록 보기</button></div>
-      <div id="teacherListResult" style="margin-top:14px"></div>
-    </div>
-  `;
-  document.getElementById('genInviteBtn').addEventListener('click', async () => {
-    const pw = document.getElementById('masterPasswordInput').value;
-    const statusEl = document.getElementById('genInviteStatus');
-    try{
-      const res = await fetch('/api/teacher-registry', {
-        method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ action:'generateInvite', master: pw })
-      });
-      const data = await res.json();
-      if(!res.ok) throw new Error(data.error);
-      statusEl.className = 'status-msg ok';
-      statusEl.textContent = '발급된 초대코드: ' + data.inviteCode;
-    }catch(err){
-      statusEl.className = 'status-msg error';
-      statusEl.textContent = err.message;
-    }
-  });
-  document.getElementById('listTeachersBtn').addEventListener('click', async () => {
-    const pw = document.getElementById('masterPasswordInput').value;
-    const resultEl = document.getElementById('teacherListResult');
-    resultEl.innerHTML = '불러오는 중...';
-    try{
-      const res = await fetch('/api/teacher-registry?master=' + encodeURIComponent(pw));
-      const data = await res.json();
-      if(!res.ok) throw new Error(data.error);
-      resultEl.innerHTML = data.teachers.map(t => `
-        <div style="border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin-bottom:8px">
-          <b>${escapeHtml(t.name)}</b> <span style="color:var(--muted);font-size:12px">(코드: ${escapeHtml(t.code)})</span>
-        </div>
-      `).join('') || '<div class="sub">등록된 강사가 없습니다.</div>';
-    }catch(err){
-      resultEl.innerHTML = `<div class="status-msg error" style="display:block">${escapeHtml(err.message)}</div>`;
-    }
-  });
-}
-
-/* ---------- 제안서 미리보기 렌더링 ---------- */
-function renderProposalPreview(schoolName, contactPerson){
-  const c = CONFIG;
-  const titleSuffix = schoolName ? ` — ${escapeHtml(schoolName)}` : '';
-  return `
-    <div id="proposalPage">
-      <div class="p-header">
-        <div class="p-brand">진로모아커리어센터 · MOA&nbsp;FORMULA</div>
-        <div class="p-title">자소서·면접 AI 코칭 프로그램 제안서${titleSuffix}</div>
-        <div class="p-sub">교육 시간 안에 결과물까지 완성되는 취업 코칭${contactPerson ? ' — ' + escapeHtml(contactPerson) + '님께' : ' — 학교·기관 특강용'}</div>
-      </div>
-      <div class="p-intro">${nl2br(c.instructorIntro)}</div>
-      <div class="p-zero">
-        <div class="p-zero-badge">✋ 업무 부담 ZERO</div>
-        <div class="p-zero-text">${nl2br(c.zeroEffortNote)}</div>
-      </div>
-      <div class="p-section-title">교육 시간에 맞춘 3가지 구성</div>
-      <div class="p-tiers">
-        ${c.tiers.map((tier, i) => {
-          const colors = ['#274DEA', '#6338EE', '#B6DB00'];
-          const color = colors[i % colors.length];
-          const darkText = color === '#B6DB00';
-          return `
-          <div class="p-tier">
-            <div class="p-tier-head" style="background:${color}">
-              <div class="name" style="${darkText ? 'color:#10288C' : ''}">${escapeHtml(tier.name)} · ${escapeHtml(tier.duration)}</div>
-              <div class="tag" style="${darkText ? 'color:#10288C' : ''}">${escapeHtml(tier.tag)}</div>
-            </div>
-            <div class="p-tier-body">
-              <div class="p-tier-col"><div class="col-label">핵심 내용</div><div class="col-val">${nl2br(tier.content)}</div></div>
-              <div class="p-tier-col"><div class="col-label">결과물</div><div class="col-val">${nl2br(tier.output)}</div></div>
-              <div class="p-tier-col"><div class="col-label">추천 대상</div><div class="col-val">${nl2br(tier.target)}</div></div>
-            </div>
-          </div>`;
-        }).join('')}
-      </div>
-      <div class="p-section-title">세 구성 모두에 공통으로 제공되는 것</div>
-      <div class="p-common">
-        ${c.commonPoints.map(p => `<div>${nl2br(p)}</div>`).join('')}
-      </div>
-      <div class="p-section-title">예상 비용 안내</div>
-      <div class="p-common" style="flex-direction:column;gap:6px">
-        <div><b>특강 강사료</b> — 시간당 ${escapeHtml(c.basePricePerHour || '')} (구성별 소요 시간 기준, 협의 가능)</div>
-        <div><b>AI 코칭 시스템 이용료</b> — 학생 1인당 ${escapeHtml(c.aiSystemPricePerStudent || '')} (자소서 첨삭·모의면접 AI 프로그램, 개인별 결과 리포트 포함 · 심화형 구성에 기본 포함)</div>
-      </div>
-      <div class="p-flex">
-        <div class="l1">${nl2br(c.flexNote)}</div>
-      </div>
-      <div class="p-footer">
-        <div>
-          <div class="name">${escapeHtml(c.instructorName)}</div>
-          <div class="cred">${escapeHtml(c.instructorCred)}</div>
-        </div>
-        <div>
-          <div class="contact-label">문의</div>
-          <div class="contact-val">${escapeHtml(c.contactPhone)}</div>
-          <div class="contact-label" style="margin-top:2px">${escapeHtml(c.contactEmail)}</div>
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-/* ---------- 메인 생성기 화면 ---------- */
-function renderGenerator(){
-  app.innerHTML = `
-    <div class="card no-print" id="controlsPanel">
-      <h2>제안서 정보 입력</h2>
-      <label>학교·기관명 <span style="color:#D85A30">*</span></label>
-      <input type="text" id="schoolNameInput" placeholder="예: 구미대학교 물리치료과">
-      <label>담당자명 <span style="font-weight:400;color:var(--muted)">(선택)</span></label>
-      <input type="text" id="contactPersonInput" placeholder="예: 김진로 선생님">
-      <div class="btn-row">
-        <button class="btn btn-primary" id="generateBtn">제안서 생성 / 미리보기 갱신</button>
-        <button class="btn btn-secondary" id="printBtn">🖨 인쇄 / PDF로 저장</button>
-        <button class="btn btn-secondary" id="openSettingsBtn">⚙ 기본값 설정</button>
-      </div>
-    </div>
-    <div id="previewWrap"></div>
-  `;
-
-  const schoolInput = document.getElementById('schoolNameInput');
-  const personInput = document.getElementById('contactPersonInput');
-  const previewWrap = document.getElementById('previewWrap');
-
-  function updatePreview(){
-    previewWrap.innerHTML = renderProposalPreview(schoolInput.value.trim(), personInput.value.trim());
-  }
-  updatePreview();
-
-  document.getElementById('generateBtn').addEventListener('click', updatePreview);
-  document.getElementById('printBtn').addEventListener('click', () => { updatePreview(); window.print(); });
-  document.getElementById('openSettingsBtn').addEventListener('click', renderSettings);
-}
-
-/* ---------- 기본값 설정 화면 ---------- */
-function renderSettings(){
-  const c = CONFIG;
-  app.innerHTML = `
-    <div class="card">
-      <h2>⚙ 제안서 기본값 설정</h2>
-      <p class="sub">여기서 고친 내용은 다음에 제안서를 만들 때마다 기본값으로 그대로 사용돼요.</p>
-
-      <label>강사 소개 문구</label>
-      <textarea id="edit-intro" style="min-height:100px">${escapeHtml(c.instructorIntro)}</textarea>
-
-      <label>"업무 부담 ZERO" 강조 문구 (선생님 개입 없음을 강조)</label>
-      <textarea id="edit-zeroeffort" style="min-height:70px">${escapeHtml(c.zeroEffortNote || '')}</textarea>
-
-      <label>특강 강사료 (시간당)</label>
-      <input type="text" id="edit-baseprice" value="${escapeHtml(c.basePricePerHour || '')}" placeholder="예: 17만원" style="margin-bottom:14px">
-
-      <label>AI 코칭 시스템 이용료 (학생 1인당)</label>
-      <input type="text" id="edit-aiprice" value="${escapeHtml(c.aiSystemPricePerStudent || '')}" placeholder="예: 7,500원" style="margin-bottom:14px">
-
-      <div id="tiersEditArea"></div>
-
-      <label>공통 제공사항 (3줄)</label>
-      <textarea id="edit-common" style="min-height:70px">${escapeHtml(c.commonPoints.join('\n'))}</textarea>
-      <div class="sub">한 줄에 하나씩 입력하세요.</div>
-
-      <label>하단 안내 문구</label>
-      <textarea id="edit-flex">${escapeHtml(c.flexNote)}</textarea>
-
-      <label>강사명</label>
-      <input type="text" id="edit-name" value="${escapeHtml(c.instructorName)}">
-      <label>강사 소개(짧은 경력줄)</label>
-      <input type="text" id="edit-cred" value="${escapeHtml(c.instructorCred)}">
-      <label>연락처</label>
-      <input type="text" id="edit-phone" value="${escapeHtml(c.contactPhone)}">
-      <label>이메일</label>
-      <input type="text" id="edit-email" value="${escapeHtml(c.contactEmail)}">
-
-      <div class="btn-row">
-        <button class="btn btn-primary" id="saveSettingsBtn">저장</button>
-        <button class="btn btn-secondary" id="cancelSettingsBtn">취소</button>
-      </div>
-      <div id="saveStatus" class="status-msg" style="display:none"></div>
-    </div>
-  `;
-
-  const tiersArea = document.getElementById('tiersEditArea');
-  c.tiers.forEach((tier, i) => {
-    const block = document.createElement('div');
-    block.className = 'tier-edit-block';
-    block.innerHTML = `
-      <div class="tier-head">
-        <div style="flex:1">
-          <label style="margin-top:0">구성 ${i+1} 이름</label>
-          <input type="text" class="t-name" data-i="${i}" value="${escapeHtml(tier.name)}">
-        </div>
-        <div style="flex:1">
-          <label style="margin-top:0">소요 시간</label>
-          <input type="text" class="t-duration" data-i="${i}" value="${escapeHtml(tier.duration)}">
-        </div>
-      </div>
-      <label>한 줄 태그</label>
-      <input type="text" class="t-tag" data-i="${i}" value="${escapeHtml(tier.tag)}">
-      <label>핵심 내용</label>
-      <textarea class="t-content" data-i="${i}">${escapeHtml(tier.content)}</textarea>
-      <label>결과물</label>
-      <textarea class="t-output" data-i="${i}">${escapeHtml(tier.output)}</textarea>
-      <label>추천 대상</label>
-      <textarea class="t-target" data-i="${i}">${escapeHtml(tier.target)}</textarea>
-    `;
-    tiersArea.appendChild(block);
-  });
-
-  document.getElementById('cancelSettingsBtn').addEventListener('click', renderGenerator);
-
-  document.getElementById('saveSettingsBtn').addEventListener('click', async () => {
-    const statusEl = document.getElementById('saveStatus');
-    const newTiers = c.tiers.map((_, i) => ({
-      name: document.querySelector(`.t-name[data-i="${i}"]`).value.trim(),
-      duration: document.querySelector(`.t-duration[data-i="${i}"]`).value.trim(),
-      tag: document.querySelector(`.t-tag[data-i="${i}"]`).value.trim(),
-      content: document.querySelector(`.t-content[data-i="${i}"]`).value,
-      output: document.querySelector(`.t-output[data-i="${i}"]`).value,
-      target: document.querySelector(`.t-target[data-i="${i}"]`).value
-    }));
-    const newConfig = {
-      instructorIntro: document.getElementById('edit-intro').value,
-      zeroEffortNote: document.getElementById('edit-zeroeffort').value,
-      basePricePerHour: document.getElementById('edit-baseprice').value.trim(),
-      aiSystemPricePerStudent: document.getElementById('edit-aiprice').value.trim(),
-      tiers: newTiers,
-      commonPoints: document.getElementById('edit-common').value.split('\n').map(s => s.trim()).filter(Boolean),
-      flexNote: document.getElementById('edit-flex').value,
-      instructorName: document.getElementById('edit-name').value.trim(),
-      instructorCred: document.getElementById('edit-cred').value.trim(),
-      contactPhone: document.getElementById('edit-phone').value.trim(),
-      contactEmail: document.getElementById('edit-email').value.trim()
-    };
-    try{
-      await api('/api/config', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(newConfig) });
-      CONFIG = newConfig;
-      statusEl.className = 'status-msg ok';
-      statusEl.textContent = '저장되었습니다.';
-      statusEl.style.display = 'block';
-      setTimeout(renderGenerator, 600);
-    }catch(err){
-      statusEl.className = 'status-msg error';
-      statusEl.textContent = err.message;
-      statusEl.style.display = 'block';
-    }
-  });
-}
-
-/* ---------- 초기화 ---------- */
-(async function init(){
-  if(params.get('master') === '1'){ renderMasterScreen(); return; }
-
-  if(!TEACHER_ID){ renderTeacherSetup(); return; }
-
-  try{
-    const { config } = await api('/api/config');
-    CONFIG = config;
-  }catch(err){
-    app.innerHTML = `<div class="card status-msg error" style="display:block;margin:40px auto;max-width:500px">설정을 불러오지 못했습니다: ${escapeHtml(err.message)}</div>`;
-    return;
-  }
-  renderGenerator();
+(function(){
+var icon = document.querySelector('link[rel="apple-touch-icon"]');
+var logo = document.getElementById('brandLogo');
+if(icon && logo){ logo.src = icon.getAttribute('href'); }
 })();
+function fillGuideTable(bodyId, rows, accentVar){
+const tbody = document.getElementById(bodyId);
+tbody.innerHTML = rows.map((r, i) => `
+<tr style="background:${i % 2 === 0 ? '#fff' : '#FAFBFD'}">
+<td style="padding:12px 12px;font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.5;vertical-align:top;border-top:1px solid var(--line);word-break:keep-all">${r[0]}</td>
+<td style="padding:12px 14px;font-size:12.5px;color:#333;line-height:1.7;vertical-align:top;border-top:1px solid var(--line)">${r[1]}</td>
+</tr>
+`).join('');
+}
+fillGuideTable('resumeGuideBody', [
+['학생용 QR코드', '클릭 시 다운로드 가능, 교실에 인쇄해서 붙여둘 수 있어요.'],
+['검수 대기함', '문항별 구조진단·구체성 체크·감점 요인·AI스러운 문구 감지·채용공고 매칭·자가진단 비교·Before→After·면접관 시점 추론·강점/개선점/다듬은 문장/꼬리질문 3종까지 전부 수정 가능. "전체 승인 및 링크 생성" 한 번으로 완료돼요.'],
+['첨삭 기준 프리셋 관리', '추천 라이브러리(사회복지학과·물리치료과·항공서비스·사무행정·직업상담사)에서 바로 추가하거나, 직접 추가·수정·기본값 지정·삭제할 수 있어요.'],
+['완료된 첨삭 목록', '전공별 필터·그룹핑, 정렬(최신/오래된/이름순), 결과 보기 링크, 삭제가 가능해요.'],
+['알림 설정 — 이메일', '강사 알림 이메일은 개별 저장 버튼으로 따로 저장해요. 다른 설정을 바꿔도 사라지지 않아요.'],
+['알림 설정 — 재도전 범위', '학생 제출 횟수를 자유롭게 / 1회 재도전 / 1회만 중에서 정할 수 있어요.'],
+['알림 설정 — 트래커 연동', '단일 기관명을 설정하거나, 여러 기관을 등록해서 학생이 직접 소속을 선택하게 할 수 있어요.'],
+['헤더 클릭 → 홈 이동', '어느 화면에서든 상단 앱 이름을 클릭하면 처음 화면으로 이동해요.']
+]);
+fillGuideTable('interviewGuideBody', [
+['검수 대기함', '강사 검토 모드일 때, 학생 제출 내용을 검토한 후 승인해요.'],
+['질문 내용 편집', '6개 카테고리 각각의 질문 6개를 직접 수정할 수 있어요.'],
+['AI 평가기준 프리셋', '전체 교체형 — 프리셋을 선택하면 코칭 프롬프트 전체가 그 기준으로 바뀌어요.'],
+['알림 설정 — 이메일', '개별 저장 버튼으로 따로 저장해요. 다른 설정을 바꿔도 사라지지 않아요.'],
+['강사 검토 후 전달 체크', '체크박스를 누르는 즉시 자동으로 저장돼요.'],
+['재도전 허용 범위', '자유롭게 / 1회 재도전 / 재도전 불가 중에서 선택할 수 있어요.'],
+['기관명 설정', '단일 기관명 또는 세트별 기관명(학생이 전공·직무 세트 선택 시 자동 반영) 중에서 선택할 수 있어요.'],
+['헤더 클릭 → 홈 이동', '어느 화면에서든 상단 앱 이름을 클릭하면 처음 화면으로 이동해요.']
+]);
 </script>
 </body>
 </html>
