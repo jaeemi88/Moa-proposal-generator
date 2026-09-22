@@ -187,6 +187,7 @@
 const app = document.getElementById('app');
 const params = new URLSearchParams(location.search);
 let TEACHER_ID = (params.get('t') || '').trim().toLowerCase().replace(/[^a-z0-9가-힣_-]/g, '');
+try{ if(TEACHER_ID){ localStorage.setItem('moa_teacher_id', TEACHER_ID); } else if(!params.get('master')){ const __saved=(localStorage.getItem('moa_teacher_id')||'').trim(); if(__saved){ TEACHER_ID=__saved; const __u=new URL(location.href); __u.searchParams.set('t',__saved); history.replaceState(null,'',__u.toString()); } } }catch(e){}
 
 document.getElementById('header-title').addEventListener('click', () => {
   if(!TEACHER_ID) return;
