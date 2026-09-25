@@ -1,7 +1,9 @@
 // 강사가 설정한 제안서 기본 템플릿(강사 소개, 3단 구성, 공통제공사항, 연락처 등)을
 // 서버(Redis)에 저장 — 같은 강사의 모든 기기가 공유
 // 강사별로 데이터가 섞이지 않도록 t(강사 코드)로 구분해서 저장함
+// 보안 (2026-09-25): 강사 전용 앱이므로 조회·저장 모두 강사용 암호(STAFF_PIN) 필요
 import Redis from 'ioredis';
+import { isStaff } from './_staff.js';
 
 let redis;
 function getRedis() {
@@ -58,6 +60,14 @@ const DEFAULT_CONFIG = {
 
 export default async function handler(req, res) {
   const client = getRedis();
+  res.setHeader('Cache-Control', 'no-store');
+  try {
+    if (!(await isStaff(req, client))) return res.status(401).json({ error: '강사용 암호가 필요합니다.' });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: '확인 중 오류가 발생했습니다.' });
+  }
+
   const t = safeTeacherId(req.query.t);
   if (!t) return res.status(400).json({ error: 't(강사 코드) 파라미터가 필요합니다.' });
 
