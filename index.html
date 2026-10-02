@@ -6,7 +6,7 @@
 <title>제안서 생성기 — 진로모아커리어센터</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap">
-<meta name="theme-color" content="#D9572B">
+<meta name="theme-color" content="#FFFFFF">
 <style>
   :root{
     --navy:#11308C; --violet:#643DF2; --blue:#295BF2; --lime:#C0D904; --cream:#EAF2AE;
@@ -165,6 +165,16 @@
   header .brand{color:#FFE3D6 !important}
   #proposalPage{--navy:#11308C}
 </style>
+<link rel="stylesheet" href="/moa-ui.css"><!-- 2026-10-03 MOA 디자인 키트 (작성 화면만, 제안서 문서 색은 기본 5색 그대로) -->
+<style>
+body.moa-ui{--navy:#141A2E}
+body.moa-ui #proposalPage{--navy:#11308C}
+body.moa-ui .btn-row .btn{white-space:nowrap}
+@media (max-width:640px){ body.moa-ui .btn-row .btn-primary{flex-basis:100%} body.moa-ui .btn-row .btn{flex:1 1 auto} }
+body.moa-ui .tier-edit-block{border-color:var(--moa-line) !important;border-radius:var(--moa-r-md) !important}
+body.moa-ui .status-msg.ok{background:var(--moa-lime-soft) !important;color:var(--moa-olive) !important;border-radius:12px}
+@media print{ .moa-wordmark,.moa-head-right{display:none !important} body.moa-ui{background:#fff !important} }
+</style>
 </head>
 <body>
 <style>
@@ -180,7 +190,7 @@
   <div class="brand"><span>📍</span><span>진로모아커리어센터 · MOA&nbsp;FORMULA</span></div>
   <h1 id="header-title" style="cursor:pointer" title="홈으로">제안서 생성기</h1>
 </header>
-<script src="/staff-guard.js" data-mode="always" data-color="#D9572B"></script>
+<script src="/staff-guard.js" data-mode="always" data-color="#141A2E"></script>
 <div id="app">불러오는 중...</div>
 
 <script>
@@ -540,5 +550,6 @@ function renderSettings(){
   renderGenerator();
 })();
 </script>
+<script src="/moa-ui.js" data-color="#D9572B" data-strip="#controlsPanel .btn, .card .btn"></script><!-- 2026-10-03 흰 상단 바·자물쇠 허브 버튼 -->
 </body>
 </html>
