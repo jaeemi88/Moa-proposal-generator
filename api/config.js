@@ -16,7 +16,7 @@ function safeTeacherId(raw) {
 }
 
 const DEFAULT_CONFIG = {
-  instructorIntro: "항공승무원 12년, 진로·취업교육 16년의 현장 경험을 압축한 코칭 체계 'MOA\u00A0FORMULA(면접의 공식)' — 이를 자소서 첨삭과 모의면접, 두 AI 프로그램에 담았습니다. 시간이 짧아도 학생 손에 결과물이 남고, 답변을 다듬어가는 과정에서 태도와 자신감까지 달라집니다 — 저희가 지키는 기준입니다.",
+  instructorIntro: "항공승무원과 진로·취업교육 현장의 경험을 압축한 코칭 체계 'MOA\u00A0FORMULA(면접의 공식)' — 이를 자소서 첨삭과 모의면접, 두 AI 프로그램에 담았습니다. 시간이 짧아도 학생 손에 결과물이 남고, 답변을 다듬어가는 과정에서 태도와 자신감까지 달라집니다 — 저희가 지키는 기준입니다.",
   zeroEffortNote: "선생님은 손댈 일이 없습니다 — 학생이 직접 시작해서, 저희 전문 강사의 검수를 거쳐 완성본까지 전달됩니다. 진행 상황 확인이나 검수 부담 없이, 완성된 결과물만 받아보시면 됩니다.",
   basePricePerHour: "17만원",
   aiSystemPricePerStudent: "7,500원",
@@ -53,7 +53,7 @@ const DEFAULT_CONFIG = {
   ],
   flexNote: "위 세 구성은 하나의 기준일 뿐입니다. 학교·기관의 시간과 여건에 맞춰, 내용과 순서는 얼마든지 새롭게 구성해드립니다.",
   instructorName: "진로모아커리어센터 대표 차재임",
-  instructorCred: "항공승무원 12년 경력 · 대학 겸임교수 · MOA FORMULA 개발",
+  instructorCred: "항공승무원 출신 · 대학 겸임교수 · MOA FORMULA 개발",
   contactPhone: "010-6540-1524",
   contactEmail: "jinromoa@naver.com"
 };
