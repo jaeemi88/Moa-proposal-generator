@@ -209,6 +209,8 @@ function escapeHtml(s){
   return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 function nl2br(s){ return escapeHtml(s).replace(/\n/g, '<br>'); }
+// 쓰임새 기록 (2026-10-24 · 2단계 정리): 화면이 열린 횟수만 운영보드로 보냄 (이름·기기 정보는 보내지 않음)
+function moaUse(s){try{var k=String(s),t=Date.now(),m=window.__moaUse||(window.__moaUse={});if(m[k]&&t-m[k]<600000)return;m[k]=t;var u='https://jinromoa-board.vercel.app/api/usage',b=JSON.stringify({a:'pr',s:k});if(navigator.sendBeacon)navigator.sendBeacon(u,b);else fetch(u,{method:'POST',body:b,keepalive:true,mode:'no-cors'})}catch(e){}}
 
 async function api(path, options){
   const sep = path.includes('?') ? '&' : '?';
@@ -261,6 +263,7 @@ function renderTeacherSetup(){
 
 /* ---------- 관리자(원장님) 강사목록/초대코드 화면 ---------- */
 function renderMasterScreen(){
+  moaUse('master');
   app.innerHTML = `
     <div class="card" style="max-width:640px;margin:40px auto">
       <h2>새 초대코드 발급</h2>
@@ -377,6 +380,7 @@ function renderProposalPreview(schoolName, contactPerson){
 
 /* ---------- 메인 생성기 화면 ---------- */
 function renderGenerator(){
+  moaUse('gen');
   app.innerHTML = `
     <div class="card no-print" id="controlsPanel">
       <h2>제안서 정보 입력</h2>
@@ -407,7 +411,7 @@ function renderGenerator(){
   updatePreview();
 
   document.getElementById('generateBtn').addEventListener('click', updatePreview);
-  document.getElementById('printBtn').addEventListener('click', () => { updatePreview(); window.print(); });
+  document.getElementById('printBtn').addEventListener('click', () => { moaUse('print'); updatePreview(); window.print(); });
   document.getElementById('openSettingsBtn').addEventListener('click', renderSettings);
   document.getElementById('toBoardBtn').addEventListener('click', () => {
     const full = schoolInput.value.trim();
@@ -417,12 +421,14 @@ function renderGenerator(){
     if (m) { org = m[1]; dept = m[3]; }
     const mgr = personInput.value.trim();
     const q = new URLSearchParams({ org, dept, mgr, src: 'proposal' });
+    moaUse('push');
     window.open('https://jinromoa-board.vercel.app/#new?' + q.toString(), '_blank');
   });
 }
 
 /* ---------- 기본값 설정 화면 ---------- */
 function renderSettings(){
+  moaUse('settings');
   const c = CONFIG;
   app.innerHTML = `
     <div class="card">
