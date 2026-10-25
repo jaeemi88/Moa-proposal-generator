@@ -380,7 +380,7 @@ function renderProposalPreview(d){
   const rate = parseWon(c.basePricePerHour), ai = parseWon(c.aiSystemPricePerStudent), travel = parseNum(d.travel);
   let cost;
   if (!isNaN(rate) && !isNaN(hours)) {
-    const items = [['특강 강사료', `시간당 ${escapeHtml(c.basePricePerHour)} × ${hours}시간`, rate * hours]];
+    const items = [['강사료', `1시간 기준 ${escapeHtml(c.basePricePerHour)} × ${hours}시간`, rate * hours]];
     if (d.ai) items.push(['AI 코칭 시스템 이용료', !isNaN(ai) && !isNaN(count)
       ? `학생 1인당 ${escapeHtml(c.aiSystemPricePerStudent)} × ${count}명`
       : `학생 1인당 ${escapeHtml(c.aiSystemPricePerStudent)} (인원 확정 후 산정)`,
@@ -397,8 +397,8 @@ function renderProposalPreview(d){
   } else {
     cost = `
       <div class="p-common" style="flex-direction:column;gap:6px">
-        <div><b>특강 강사료</b> — 시간당 ${escapeHtml(c.basePricePerHour || '')} (구성별 소요 시간 기준, 협의 가능)</div>
-        <div><b>AI 코칭 시스템 이용료</b> — 학생 1인당 ${escapeHtml(c.aiSystemPricePerStudent || '')} (자소서 첨삭·모의면접 AI 프로그램, 개인별 결과 리포트 포함 · 심화형 구성에 기본 포함)</div>
+        <div><b>강사료</b> — 1시간 기준 ${escapeHtml(c.basePricePerHour || '')}(교육 시간 기준 산정, 기관 일정과 여건에 따라 협의)</div>
+        <div><b>AI 코칭 시스템 이용료</b> — 학생 1인당 ${escapeHtml(c.aiSystemPricePerStudent || '')} (자소서 첨삭·모의면접 AI 프로그램 및 개인별 결과 리포트 제공, 심화형 구성은 기본 포함)</div>
       </div>`;
   }
 
@@ -550,7 +550,7 @@ function renderSettings(){
       <label>"담당자 업무 부담 최소화" 안내 문구 (별도 진행 관리가 필요 없음을 안내)</label>
       <textarea id="edit-zeroeffort" style="min-height:70px">${escapeHtml(c.zeroEffortNote || '')}</textarea>
 
-      <label>특강 강사료 (시간당)</label>
+      <label>강사료 (1시간 기준)</label>
       <input type="text" id="edit-baseprice" value="${escapeHtml(c.basePricePerHour || '')}" placeholder="예: 17만원" style="margin-bottom:14px">
 
       <label>AI 코칭 시스템 이용료 (학생 1인당)</label>
