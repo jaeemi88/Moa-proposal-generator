@@ -161,6 +161,78 @@
   #proposalPage .p-cost-note{margin:6px 44px 0;font-size:11.5px;color:#666;line-height:1.6}
   #proposalPage .p-overview,#proposalPage .p-cost,#proposalPage .p-tier{break-inside:avoid}
 
+  /* 블록으로 조립하기 (2026-10-29): 단계별 색 블록을 쌓으면 총 교육 시간·시간표·결과물·AI 이용료가 따라옴 */
+  .bd{--s0:#8A90A0;--s1:#0F9AA8;--s2:#3E9B4F;--s3:#643DF2;--s4:#295BF2;--brk:#C9CDD6;margin-top:10px}
+  .bd-step{font-size:12px;font-weight:800;color:#D9572B;letter-spacing:.04em;margin:14px 0 6px}
+  .bd-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .bd-chip{font:inherit;border:1.5px solid #D7DAE2;background:#fff;color:#222;border-radius:999px;padding:7px 14px;cursor:pointer;font-weight:600;font-size:13px}
+  .bd-chip[aria-pressed="true"]{background:#D9572B;border-color:#D9572B;color:#fff}
+  .bd-act{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .bd-btn{font:inherit;border:0;background:#D9572B;color:#fff;border-radius:10px;padding:9px 14px;font-weight:700;cursor:pointer;font-size:13px}
+  .bd-btn.line{background:#fff;color:#D9572B;border:1.5px solid #D9572B}
+  .bd-stage-h{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800;color:#444;margin:12px 0 7px}
+  .bd-dot{width:10px;height:10px;border-radius:3px;display:inline-block;flex:none}
+  .bd-blks{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+  .bd-blk{font:inherit;text-align:left;border:1.5px solid var(--c);border-left-width:6px;background:#fff;border-radius:10px;padding:8px 10px;cursor:pointer;color:#222;transition:transform .12s}
+  .bd-blk:hover{transform:translateY(-1px)}
+  .bd-blk b{display:block;font-size:13px;line-height:1.35}
+  .bd-blk small{color:#7A8194;font-size:11.5px}
+  .bd-blk.on{background:var(--c);color:#fff}
+  .bd-blk.on small{color:rgba(255,255,255,.85)}
+  .bd-ai{font-size:10px;font-weight:800;border-radius:4px;padding:1px 5px;margin-left:4px;background:#FCE9E1;color:#8A3517;vertical-align:1px}
+  .bd-blk.on .bd-ai{background:rgba(255,255,255,.25);color:#fff}
+  .bd-board{display:flex;gap:14px;align-items:stretch;margin-top:14px;border:1px solid var(--line);border-radius:12px;padding:12px}
+  .bd-tcol{flex:none;width:108px;display:flex;flex-direction:column;align-items:center;gap:6px}
+  .bd-tower{position:relative;width:100%;height:360px;border-radius:10px;background:#FBFBFD;border:1px dashed #D7DAE2;display:flex;flex-direction:column-reverse;overflow:hidden}
+  .bd-slab{flex:none;width:100%;background:var(--c);color:#fff;font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.2;border-top:2px solid #fff;transition:height .35s ease;overflow:hidden;padding:0 4px}
+  .bd-slab.brk{background:repeating-linear-gradient(45deg,#C9CDD6 0 6px,#E4E6EB 6px 12px);color:#4A5163}
+  .bd-slab.over{background:repeating-linear-gradient(45deg,#E5484D 0 6px,#F07A7E 6px 12px)}
+  .bd-slab.new{animation:bdDrop .42s cubic-bezier(.3,1.4,.5,1)}
+  @keyframes bdDrop{from{transform:translateY(-140px);opacity:.2}to{transform:none;opacity:1}}
+  .bd-limit{position:absolute;left:0;right:0;border-top:2px dashed #1F2433;transition:bottom .35s ease;pointer-events:none}
+  .bd-limit span{position:absolute;right:4px;top:-18px;font-size:10px;font-weight:800;background:#fff;padding:0 3px}
+  .bd-meter{font-size:12px;font-weight:800;text-align:center}
+  .bd-meter.ok{color:#30A46C}.bd-meter.warn{color:#B7791F}.bd-meter.bad{color:#E5484D}
+  .bd-list{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+  .bd-item{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:7px 8px;background:#fff}
+  .bd-item .bar{width:6px;align-self:stretch;border-radius:3px;background:var(--c);flex:none}
+  .bd-item .nm{flex:1;min-width:0}
+  .bd-item .nm b{display:block;font-size:13px;line-height:1.3}
+  .bd-item .nm small{color:#7A8194;font-size:11.5px}
+  .bd-item.brk{background:#F5F6F9;border-style:dashed}
+  .bd-seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;flex:none}
+  .bd-seg button{font:inherit;font-size:11.5px;border:0;background:#fff;padding:4px 7px;cursor:pointer;color:#4A5163}
+  .bd-seg button[aria-pressed="true"]{background:#1F2433;color:#fff}
+  .bd-ic{font:inherit;border:0;background:none;color:#7A8194;cursor:pointer;font-size:15px;padding:2px 4px;line-height:1}
+  .bd-ic:hover{color:#1F2433}
+  .bd-empty{color:#7A8194;font-size:13px;border:1px dashed var(--line);border-radius:10px;padding:18px;text-align:center}
+  .bd-msg{font-size:12.5px;border-radius:10px;padding:9px 11px;margin-top:10px}
+  .bd-msg.bad{background:#FDECEC;color:#9B1C1F}.bd-msg.warn{background:#FEF4E2;color:#7A4B00}.bd-msg.ok{background:#E8F6EE;color:#1B6B43}
+  .bd-chip:focus-visible,.bd-blk:focus-visible,.bd-btn:focus-visible,.bd-seg button:focus-visible,.bd-ic:focus-visible{outline:3px solid #FCE9E1;outline-offset:2px}
+  .bd input:disabled,.card input:disabled,.card select:disabled{background:#F4F5F7;color:#7A8194}
+  @media (max-width:560px){.bd-item{flex-wrap:wrap;row-gap:4px}.bd-item .bar{align-self:auto;height:34px}.bd-item .nm{flex-basis:calc(100% - 20px)}.bd-item .bd-seg{margin-left:14px}.bd-item .bd-ic:first-of-type{margin-left:auto}.bd-tcol{width:80px}.bd-tower{height:330px}.bd-board{gap:10px;padding:10px}}
+  @media (prefers-reduced-motion:reduce){.bd-slab,.bd-limit{transition:none}.bd-slab.new{animation:none}}
+  /* 제안서 문서: 제안 교육 구성 (기본 5색) */
+  #proposalPage .p-planbar{margin:12px 44px 0;display:flex;height:30px;border-radius:8px;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #proposalPage .p-planbar span{display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;color:#fff;border-right:2px solid #fff;overflow:hidden;white-space:nowrap}
+  #proposalPage .p-planbar span:last-child{border-right:0}
+  #proposalPage .p-plan{margin:10px 44px 0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  #proposalPage .p-plan tr,#proposalPage .p-planbar,#proposalPage .p-outs div{break-inside:avoid}
+  #proposalPage .p-plan table{width:100%;border-collapse:collapse;font-size:12.5px}
+  #proposalPage .p-plan th{background:#F4F6FB;color:#555;font-weight:700;padding:8px 12px;text-align:left;border-bottom:1px solid var(--line)}
+  #proposalPage .p-plan td{padding:8px 12px;border-bottom:1px solid var(--line);color:#222;line-height:1.6;vertical-align:top}
+  #proposalPage .p-plan tr:last-child td{border-bottom:none}
+  #proposalPage .p-plan td.tm{white-space:nowrap;color:#555;width:92px;font-variant-numeric:tabular-nums}
+  #proposalPage .p-plan .stg{display:inline-block;font-size:11px;font-weight:800;border-radius:5px;padding:1px 7px;margin-bottom:2px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #proposalPage .p-plan tr.brk td{background:#FAFBFD;color:#666}
+  #proposalPage .p-outs{margin:10px 44px 0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  #proposalPage .p-outs div{background:#F4F6FB;border-radius:10px;padding:10px 14px;font-size:12.5px;line-height:1.6;border-left:4px solid var(--oc);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @media (max-width:640px){
+    #proposalPage .p-planbar,#proposalPage .p-plan,#proposalPage .p-outs{margin-left:20px;margin-right:20px}
+    #proposalPage .p-outs{grid-template-columns:1fr}
+    #proposalPage .p-plan td.tm{width:auto}
+  }
+
   @media (max-width: 640px){
     #proposalPage .p-header{padding:24px 20px}
     #proposalPage .p-title{font-size:20px}
@@ -343,6 +415,167 @@ function renderMasterScreen(){
   });
 }
 
+/* ---------- 블록으로 조립하기 (2026-10-29) ---------- */
+// 블록을 쌓으면 총 교육 시간·시간표·교육 결과물·AI 이용료 포함 여부가 제안서에 자동으로 들어감
+// 작성 화면 색: ① 청록 ② 초록 ③ 보라 ④ 파랑 · 공통 회색 / 제안서 문서 색: 기본 5색 (doc)
+const BD_STAGES = [
+  { k:1, name:'① 방향 잡기', doc:'진로 방향 설정', c:'--s1', bg:'#C0D904', fg:'#11308C' },
+  { k:2, name:'② 경험 꺼내기', doc:'경험 정리', c:'--s2', bg:'#295BF2', fg:'#fff' },
+  { k:3, name:'③ 글로 쓰기', doc:'서류 작성', c:'--s3', bg:'#643DF2', fg:'#fff' },
+  { k:4, name:'④ 말로 하기', doc:'면접 준비', c:'--s4', bg:'#11308C', fg:'#fff' },
+  { k:0, name:'공통', doc:'공통', c:'--s0', bg:'#EAF2AE', fg:'#11308C' }
+];
+const BD_BLOCKS = [
+  { id:'tp', st:1, name:'나의 시간 설계도', short:'시간 설계도', min:25, deep:50, ai:false,
+    desc:'졸업까지 남은 시간을 확인하고 학기별 핵심 과제와 이번 주 실행 계획을 수립합니다.', out:'졸업까지의 시간 설계도와 이번 주 실행 계획' },
+  { id:'jd', st:2, name:'채용공고 읽기', short:'공고 읽기', min:15, deep:30, ai:false,
+    desc:'채용공고에서 직무의 주요 업무와 필요 역량을 분석합니다.', out:'지원 직무의 필요 역량 분석' },
+  { id:'star', st:2, name:'STAR 경험카드', short:'STAR 카드', min:30, deep:60, ai:false,
+    desc:'개인 경험을 직무 역량과 연결하여 STAR 구조로 정리합니다.', out:'직무 역량과 연결한 STAR 경험카드' },
+  { id:'rs', st:3, name:'자소서 조립 · 첨삭', short:'자소서', min:30, deep:60, ai:true,
+    desc:'자기소개서 문항 초안을 작성하고 AI 첨삭과 강사 피드백으로 완성도를 높입니다.', out:'첨삭을 거친 자기소개서 문항' },
+  { id:'i1', st:4, name:'1분 자기소개 조립기', short:'1분 자기소개', min:25, deep:40, ai:false,
+    desc:'핵심 경험과 강점을 담은 1분 자기소개를 구성하고 발표 연습을 진행합니다.', out:'1분 자기소개 원고' },
+  { id:'iv', st:4, name:'모의면접 실전', short:'모의면접', min:30, deep:60, ai:true,
+    desc:'AI 모의면접으로 실전 답변을 연습하고 개인별 피드백을 확인합니다.', out:'모의면접 AI 피드백 리포트' },
+  { id:'open', st:0, name:'도입 · 오리엔테이션', short:'도입', min:10, deep:15, ai:false, desc:'교육 목표와 진행 방식을 안내합니다.' },
+  { id:'share', st:0, name:'발표 · 피드백', short:'발표', min:15, deep:30, ai:false, desc:'우수 사례를 함께 살펴보고 강사 피드백을 진행합니다.' },
+  { id:'close', st:0, name:'만족도 · 마무리', short:'마무리', min:10, deep:10, ai:false, desc:'교육 내용을 정리하고 만족도 조사를 진행합니다.' }
+];
+const BD_PURPOSES = [
+  { k:'dir', name:'진로 방향', doc:'진로 방향 설정', pri:['tp','star','i1'] },
+  { k:'doc', name:'서류 준비', doc:'자기소개서 작성', pri:['rs','star','jd','share'] },
+  { k:'itv', name:'면접 대비', doc:'면접 대비', pri:['i1','iv','star','share'] },
+  { k:'all', name:'취업 준비 전 과정', doc:'취업 준비 전 과정', pri:['star','rs','i1','tp','iv','share'] }
+];
+const BD_TIMES = [{ m:50, name:'50분' }, { m:90, name:'90분' }, { m:120, name:'2시간' }, { m:180, name:'3시간' }, { m:360, name:'하루 (6시간)' }];
+const BD_ORDER = ['open','tp','jd','star','rs','i1','iv','share','close'];
+const BD = {}; BD_BLOCKS.forEach(b => { BD[b.id] = b; });
+const BUILD = { on:false, purpose:'all', budget:180, stack:[], autoBreak:true, last:null };
+try{ BUILD.on = localStorage.getItem('moa_pr_builder') !== '0'; }catch(e){ BUILD.on = true; }
+
+const bdStage = b => BD_STAGES.find(s => s.k === b.st);
+const bdMin = it => it.id === 'brk' ? 10 : (it.deep ? BD[it.id].deep : BD[it.id].min);
+const bdSort = st => st.sort((a, b) => BD_ORDER.indexOf(a.id) - BD_ORDER.indexOf(b.id));
+// 휴식 자동: 쉬지 않고 60분을 넘기게 되면 그 앞에 10분 휴식
+function bdSeq(stack){
+  if(!BUILD.autoBreak) return stack.slice();
+  const out = []; let run = 0;
+  stack.forEach(it => { const m = bdMin(it); if(run > 0 && run + m > 60){ out.push({ id:'brk' }); run = 0; } out.push(it); run += m; });
+  return out;
+}
+const bdTotal = stack => bdSeq(stack).reduce((a, x) => a + bdMin(x), 0);
+const bdHours = min => min ? Math.max(1, Math.ceil(min / 30) / 2) : 0; // 30분 단위 올림
+function bdRecommend(){
+  const p = BD_PURPOSES.find(x => x.k === BUILD.purpose);
+  let st = [{ id:'open' }, { id:'close' }];
+  p.pri.forEach(id => { const t = bdSort(st.concat([{ id }])); if(bdTotal(t) <= BUILD.budget) st = t; });
+  p.pri.forEach(id => { const it = st.find(x => x.id === id); if(!it) return; it.deep = true; if(bdTotal(st) > BUILD.budget) it.deep = false; });
+  BUILD.stack = bdSort(st); BUILD.last = 'all';
+}
+// 제안서에 넘길 내용 (블록이 없으면 null → 기존 방식 그대로)
+function bdPlan(){
+  if(!BUILD.on || !BUILD.stack.length) return null;
+  let t = 0;
+  const rows = bdSeq(BUILD.stack).map(x => { const m = bdMin(x), a = t; t += m; return { id:x.id, from:a, to:t, m }; });
+  return { rows, total:t, hours:bdHours(t), ai:BUILD.stack.some(x => BD[x.id].ai),
+    aiNames:BUILD.stack.filter(x => BD[x.id].ai).map(x => BD[x.id].short),
+    purpose:BD_PURPOSES.find(x => x.k === BUILD.purpose).doc,
+    outs:BUILD.stack.filter(x => BD[x.id].out).map(x => x.id) };
+}
+
+function renderBuilder(){
+  const area = document.getElementById('builderArea');
+  if(!area) return;
+  if(!BUILD.on){ area.innerHTML = ''; return; }
+  const seq = bdSeq(BUILD.stack), tot = bdTotal(BUILD.stack), left = BUILD.budget - tot;
+  const H = 360, max = Math.max(tot, BUILD.budget) * 1.1;
+  let acc = 0;
+  const slabs = seq.map((x, i) => {
+    const m = bdMin(x), h = Math.max(4, m / max * H), b = x.id === 'brk' ? null : BD[x.id];
+    const cls = 'bd-slab' + (b ? '' : ' brk') + (acc >= BUILD.budget ? ' over' : '') + ((BUILD.last === 'all' || BUILD.last === x.id) ? ' new' : '');
+    acc += m;
+    return `<div class="${cls}" style="height:${h}px;${b ? '--c:var(' + bdStage(b).c + ');' : ''}animation-delay:${BUILD.last === 'all' ? i * 60 : 0}ms">${h >= 22 ? (b ? escapeHtml(b.short) + '<br>' + m + '분' : '휴식') : ''}</div>`;
+  }).join('');
+  const list = !BUILD.stack.length ? '<div class="bd-empty">위 블록을 누르거나<br>[추천 조합으로 쌓기]를 눌러 주세요.</div>' : seq.map(x => {
+    if(x.id === 'brk') return '<div class="bd-item brk"><span class="bar" style="background:var(--brk)"></span><div class="nm"><b>휴식</b><small>10분 · 자동</small></div></div>';
+    const b = BD[x.id], i = BUILD.stack.indexOf(x);
+    const seg = b.deep !== b.min ? `<div class="bd-seg" role="group" aria-label="진행 깊이"><button type="button" data-bd-depth="${i}" data-v="0" aria-pressed="${!x.deep}">짧게</button><button type="button" data-bd-depth="${i}" data-v="1" aria-pressed="${!!x.deep}">깊게</button></div>` : '';
+    return `<div class="bd-item"><span class="bar" style="--c:var(${bdStage(b).c})"></span><div class="nm"><b>${escapeHtml(b.name)}${b.ai ? '<span class="bd-ai">AI</span>' : ''}</b><small>${bdMin(x)}분</small></div>${seg}` +
+      `<button type="button" class="bd-ic" data-bd-up="${i}" aria-label="위로">↑</button><button type="button" class="bd-ic" data-bd-down="${i}" aria-label="아래로">↓</button><button type="button" class="bd-ic" data-bd-del="${i}" aria-label="빼기">×</button></div>`;
+  }).join('');
+  let msg = '';
+  if(BUILD.stack.length){
+    if(left < 0){
+      const c = BUILD.stack.find(x => x.deep && BD[x.id].deep - BD[x.id].min >= -left);
+      msg = `<div class="bd-msg bad">교육 시간을 ${-left}분 넘었습니다. ${c ? '「' + escapeHtml(BD[c.id].name) + '」을 짧게로 바꾸면 맞습니다.' : '블록 하나를 빼거나 교육 시간을 늘려 주세요.'}</div>`;
+    } else if(left > BUILD.budget * 0.25){
+      const d = BUILD.stack.find(x => !x.deep && BD[x.id].deep !== BD[x.id].min && BD[x.id].deep - BD[x.id].min <= left);
+      msg = `<div class="bd-msg warn">${left}분이 남습니다. ${d ? '「' + escapeHtml(BD[d.id].name) + '」을 깊게로 바꾸거나 ' : ''}블록을 더 넣을 수 있습니다.</div>`;
+    } else msg = '<div class="bd-msg ok">교육 시간에 알맞게 구성되었습니다.</div>';
+  }
+  area.innerHTML = `<div class="bd">
+    <div class="bd-step">교육 목적</div>
+    <div class="bd-chips">${BD_PURPOSES.map(p => `<button type="button" class="bd-chip" data-bd-p="${p.k}" aria-pressed="${BUILD.purpose === p.k}">${escapeHtml(p.name)}</button>`).join('')}</div>
+    <div class="bd-step">교육 시간</div>
+    <div class="bd-chips">${BD_TIMES.map(t => `<button type="button" class="bd-chip" data-bd-t="${t.m}" aria-pressed="${BUILD.budget === t.m}">${escapeHtml(t.name)}</button>`).join('')}</div>
+    <div class="bd-act"><button type="button" class="bd-btn" data-bd-rec="1">추천 조합으로 쌓기</button><button type="button" class="bd-btn line" data-bd-clear="1">모두 비우기</button></div>
+    <div class="bd-step">블록 고르기 <span style="font-weight:500;color:var(--muted);letter-spacing:0">· 누르면 쌓이고, 한 번 더 누르면 빠집니다. <span class="bd-ai">AI</span> 블록이 있으면 AI 코칭 이용료가 포함됩니다.</span></div>
+    ${BD_STAGES.map(s => `<div class="bd-stage-h"><span class="bd-dot" style="background:var(${s.c})"></span>${escapeHtml(s.name)}</div><div class="bd-blks">` +
+      BD_BLOCKS.filter(b => b.st === s.k).map(b => { const on = BUILD.stack.some(x => x.id === b.id);
+        return `<button type="button" class="bd-blk${on ? ' on' : ''}" data-bd-b="${b.id}" aria-pressed="${on}" style="--c:var(${s.c})"><b>${escapeHtml(b.name)}${b.ai ? '<span class="bd-ai">AI</span>' : ''}</b><small>기본 ${b.min}분${b.deep !== b.min ? ' · 깊게 ' + b.deep + '분' : ''}</small></button>`; }).join('') + '</div>').join('')}
+    <div class="bd-board">
+      <div class="bd-tcol"><div class="bd-tower">${slabs}<div class="bd-limit" style="bottom:${BUILD.budget / max * H}px"><span>${BUILD.budget}분</span></div></div>
+        <div class="bd-meter ${left < 0 ? 'bad' : left > BUILD.budget * 0.25 ? 'warn' : 'ok'}">${left < 0 ? (-left) + '분 초과' : tot + ' / ' + BUILD.budget + '분'}</div></div>
+      <div class="bd-list">${list}</div>
+    </div>
+    ${msg}
+    <label class="chk"><input type="checkbox" id="bdBreak"${BUILD.autoBreak ? ' checked' : ''}> 쉬지 않고 60분을 넘기면 휴식 10분 자동으로 넣기</label>
+  </div>`;
+  BUILD.last = null;
+  document.getElementById('bdBreak').addEventListener('change', e => { BUILD.autoBreak = e.target.checked; bdChanged(); });
+}
+function bdChanged(){ renderBuilder(); if(window.__prUpdate) window.__prUpdate(); }
+function bdClick(e){
+  const el = e.target.closest('button'); if(!el || !el.closest('#builderArea')) return;
+  const ds = el.dataset, S = BUILD.stack;
+  if(ds.bdP){ BUILD.purpose = ds.bdP; }
+  else if(ds.bdT){ BUILD.budget = Number(ds.bdT); }
+  else if(ds.bdRec){ bdRecommend(); moaUse('builder'); }
+  else if(ds.bdClear){ BUILD.stack = []; }
+  else if(ds.bdB){ const i = S.findIndex(x => x.id === ds.bdB); if(i >= 0) S.splice(i, 1); else { S.push({ id:ds.bdB }); bdSort(S); BUILD.last = ds.bdB; moaUse('builder'); } }
+  else if(ds.bdDepth !== undefined){ S[+ds.bdDepth].deep = ds.v === '1'; }
+  else if(ds.bdUp !== undefined){ const i = +ds.bdUp; if(i > 0) [S[i - 1], S[i]] = [S[i], S[i - 1]]; }
+  else if(ds.bdDown !== undefined){ const i = +ds.bdDown; if(i < S.length - 1) [S[i], S[i + 1]] = [S[i + 1], S[i]]; }
+  else if(ds.bdDel !== undefined){ S.splice(+ds.bdDel, 1); }
+  else return;
+  bdChanged();
+}
+document.addEventListener('click', bdClick);
+
+// 제안서 문서용: 제안 교육 구성 (색 띠 + 시간표 + 교육 결과물)
+function bdPlanHtml(plan){
+  const bar = plan.rows.map(r => {
+    if(r.id === 'brk') return `<span style="flex:${r.m};background:#E2E5EE;color:#666"></span>`;
+    const s = bdStage(BD[r.id]);
+    return `<span style="flex:${r.m};background:${s.bg};color:${s.fg}">${r.m >= 20 ? escapeHtml(BD[r.id].short) : ''}</span>`;
+  }).join('');
+  const rows = plan.rows.map(r => {
+    if(r.id === 'brk') return `<tr class="brk"><td class="tm">${r.from}~${r.to}분</td><td>휴식</td><td></td></tr>`;
+    const b = BD[r.id], s = bdStage(b);
+    return `<tr><td class="tm">${r.from}~${r.to}분</td><td>${b.st ? `<span class="stg" style="background:${s.bg};color:${s.fg}">${escapeHtml(s.doc)}</span><br>` : ''}<b>${escapeHtml(b.name)}</b><br>${escapeHtml(b.desc)}</td><td>${b.out ? escapeHtml(b.out) : ''}</td></tr>`;
+  }).join('');
+  return `
+      <div class="p-section-title">제안 교육 구성 · 총 ${plan.hours}시간 (${plan.total}분)</div>
+      <div class="p-planbar">${bar}</div>
+      <div class="p-plan"><table>
+        <tr><th>시간</th><th>교육 내용</th><th>결과물</th></tr>
+        ${rows}
+      </table></div>
+      ${plan.outs.length ? `<div class="p-section-title">교육 결과물</div>
+      <div class="p-outs">${plan.outs.map(id => `<div style="--oc:${bdStage(BD[id]).bg}">${escapeHtml(BD[id].out)}</div>`).join('')}</div>` : ''}`;
+}
+
 /* ---------- 제안서 미리보기 렌더링 ---------- */
 // "17만원" → 170000, "7,500원" → 7500 (읽을 수 없으면 NaN)
 function parseWon(s){
@@ -352,9 +585,12 @@ function parseWon(s){
 function parseNum(s){ const n = parseFloat(String(s || '').replace(/[^\d.]/g, '')); return isNaN(n) ? NaN : n; }
 function won(n){ return n.toLocaleString('ko-KR') + '원'; }
 
-// d: 작성 화면 입력값 { school, person, target, count, tier, hours, date, place, bg, ai, travel }
+// d: 작성 화면 입력값 { school, person, target, count, tier, hours, date, place, bg, ai, travel,
+//    rate, aiPrice(이번 제안서 단가), asst·asstPrice(보조강사), book·bookPrice(교재), plan(블록 조립 결과 · 없으면 null) }
 function renderProposalPreview(d){
   const c = CONFIG;
+  const plan = d.plan || null;
+  if (plan) { d.tier = ''; d.hours = String(plan.hours); d.ai = plan.ai; }
   const titleSuffix = d.school ? ` — ${escapeHtml(d.school)}` : '';
   const picked = d.tier === '' || d.tier == null ? -1 : Number(d.tier);
   const pickedTier = c.tiers[picked] || null;
@@ -362,9 +598,10 @@ function renderProposalPreview(d){
   // 교육 개요 (입력한 줄만 표시)
   const count = parseNum(d.count), hours = parseNum(d.hours);
   const rows = [
+    ['교육 목적', plan ? plan.purpose : ''],
     ['교육 대상', d.target],
     ['인원', d.count ? (isNaN(count) ? d.count : count + '명') : ''],
-    ['교육 시간', d.hours ? (isNaN(hours) ? d.hours : '총 ' + hours + '시간') : (pickedTier ? pickedTier.duration : '')],
+    ['교육 시간', plan ? '총 ' + plan.hours + '시간 (' + plan.total + '분)' : d.hours ? (isNaN(hours) ? d.hours : '총 ' + hours + '시간') : (pickedTier ? pickedTier.duration : '')],
     ['교육 일시', d.date],
     ['교육 장소', d.place]
   ].filter(r => r[1]);
@@ -377,14 +614,19 @@ function renderProposalPreview(d){
       ${d.bg ? `<div class="p-bg"><div class="lbl">교육 배경</div>${nl2br(d.bg)}</div>` : ''}` : '';
 
   // 예상 비용: 시간을 넣으면 항목별 금액·합계 표, 아니면 단가 안내
-  const rate = parseWon(c.basePricePerHour), ai = parseWon(c.aiSystemPricePerStudent), travel = parseNum(d.travel);
+  // 단가는 이번 제안서 입력값(d.rate·d.aiPrice) 우선, 비어 있으면 기본값 설정 (2026-10-29)
+  const rateStr = d.rate || c.basePricePerHour || '', aiStr = d.aiPrice || c.aiSystemPricePerStudent || '';
+  const rate = parseWon(rateStr), ai = parseWon(aiStr), travel = parseNum(d.travel);
+  const asst = parseWon(d.asstPrice), book = parseWon(d.bookPrice);
   let cost;
   if (!isNaN(rate) && !isNaN(hours)) {
-    const items = [['강사료', `1시간 기준 ${escapeHtml(c.basePricePerHour)} × ${hours}시간`, rate * hours]];
+    const items = [['강사료', `1시간 기준 ${escapeHtml(rateStr)} × ${hours}시간`, rate * hours]];
+    if (d.asst) items.push(['보조강사', !isNaN(asst) ? `1시간 기준 ${won(asst)} × ${hours}시간` : '인원과 구성에 따라 협의', !isNaN(asst) ? asst * hours : null]);
     if (d.ai) items.push(['AI 코칭 시스템 이용료', !isNaN(ai) && !isNaN(count)
-      ? `학생 1인당 ${escapeHtml(c.aiSystemPricePerStudent)} × ${count}명`
-      : `학생 1인당 ${escapeHtml(c.aiSystemPricePerStudent)} (인원 확정 후 산정)`,
+      ? `학생 1인당 ${escapeHtml(aiStr)} × ${count}명`
+      : `학생 1인당 ${escapeHtml(aiStr)} (인원 확정 후 산정)`,
       !isNaN(ai) && !isNaN(count) ? ai * count : null]);
+    if (d.book) items.push(['교재 · 워크북', !isNaN(book) && !isNaN(count) ? `학생 1인당 ${won(book)} × ${count}명` : '인원 확정 후 산정', !isNaN(book) && !isNaN(count) ? book * count : null]);
     if (!isNaN(travel)) items.push(['교통비', '실비 기준', travel]);
     const total = items.reduce((sum, it) => sum + (it[2] || 0), 0);
     cost = `
@@ -397,8 +639,8 @@ function renderProposalPreview(d){
   } else {
     cost = `
       <div class="p-common" style="flex-direction:column;gap:6px">
-        <div><b>강사료</b> — 1시간 기준 ${escapeHtml(c.basePricePerHour || '')}(교육 시간 기준 산정, 기관 일정과 여건에 따라 협의)</div>
-        <div><b>AI 코칭 시스템 이용료</b> — 학생 1인당 ${escapeHtml(c.aiSystemPricePerStudent || '')} (자소서 첨삭·모의면접 AI 프로그램 및 개인별 결과 리포트 제공, 심화형 구성은 기본 포함)</div>
+        <div><b>강사료</b> — 1시간 기준 ${escapeHtml(rateStr)}(교육 시간 기준 산정, 기관 일정과 여건에 따라 협의)</div>
+        <div><b>AI 코칭 시스템 이용료</b> — 학생 1인당 ${escapeHtml(aiStr)} (자소서 첨삭·모의면접 AI 프로그램 및 개인별 결과 리포트 제공, 심화형 구성은 기본 포함)</div>
       </div>`;
   }
 
@@ -415,7 +657,7 @@ function renderProposalPreview(d){
         <div class="p-zero-badge">담당자 업무 부담 최소화</div>
         <div class="p-zero-text">${nl2br(c.zeroEffortNote)}</div>
       </div>
-      <div class="p-section-title">교육 시간에 맞춘 3가지 구성</div>
+      ${plan ? bdPlanHtml(plan) : `<div class="p-section-title">교육 시간에 맞춘 3가지 구성</div>
       <div class="p-tiers">
         ${c.tiers.map((tier, i) => {
           const colors = ['#295BF2', '#643DF2', '#C0D904'];
@@ -434,7 +676,7 @@ function renderProposalPreview(d){
             </div>
           </div>`;
         }).join('')}
-      </div>
+      </div>`}
       <div class="p-section-title">공통 제공 사항</div>
       <div class="p-common">
         ${c.commonPoints.map(p => `<div>${nl2br(p)}</div>`).join('')}
@@ -480,12 +722,26 @@ function renderGenerator(){
         <div><label>교육 장소 <span style="font-weight:400;color:var(--muted)">(선택)</span></label><input type="text" id="placeInput" placeholder="예: 학과 강의실 (빔프로젝터 사용)"></div>
       </div>
 
+      <h2 class="sec">교육 구성 조립</h2>
+      <label class="chk"><input type="checkbox" id="builderOn"${BUILD.on ? ' checked' : ''}> 블록으로 조립하기 <span style="font-weight:400;color:var(--muted)">(총 교육 시간·시간표·교육 결과물·AI 이용료가 자동으로 채워집니다)</span></label>
+      <div id="builderArea"></div>
+
       <h2 class="sec">교육 배경</h2>
       <label>기관 요청 사항 <span style="font-weight:400;color:var(--muted)">(미팅·통화에서 들은 내용을 적으면 제안서에 '교육 배경'으로 들어갑니다)</span></label>
       <textarea id="bgInput" placeholder="예: 병원 취업을 앞둔 3학년 학생들이 자기소개서 작성과 면접 준비에 어려움을 겪고 있어, 교육 시간 안에 실제 제출이 가능한 수준의 자기소개서를 완성하기를 희망하십니다."></textarea>
 
       <h2 class="sec">비용</h2>
+      <div class="sub" style="margin-top:0">단가는 이번 제안서에만 적용됩니다. 처음 값은 [기본값 설정]에서 불러옵니다.</div>
+      <div class="grid2">
+        <div><label>강사료 (1시간 기준)</label><input type="text" id="rateInput" value="${escapeHtml(CONFIG.basePricePerHour || '')}" placeholder="예: 17만원"></div>
+        <div><label>AI 코칭 이용료 (학생 1인당)</label><input type="text" id="aiPriceInput" value="${escapeHtml(CONFIG.aiSystemPricePerStudent || '')}" placeholder="예: 7,500원"></div>
+      </div>
       <label class="chk"><input type="checkbox" id="aiCheck" checked> AI 코칭 시스템 이용료 포함 (학생 1인당)</label>
+      <div class="sub" id="aiAutoNote" style="display:none">블록으로 조립 중에는 AI 블록(자소서 조립·첨삭, 모의면접)이 있을 때 자동으로 포함됩니다.</div>
+      <div class="grid2">
+        <div><label class="chk"><input type="checkbox" id="asstCheck"> 보조강사 포함</label><input type="text" id="asstPriceInput" value="${escapeHtml(CONFIG.assistantPricePerHour || '')}" placeholder="1시간 기준 (비우면 '협의')"></div>
+        <div><label class="chk"><input type="checkbox" id="bookCheck"> 교재 · 워크북 포함</label><input type="text" id="bookPriceInput" value="${escapeHtml(CONFIG.bookPricePerStudent || '')}" placeholder="학생 1인당 (비우면 인원 확정 후)"></div>
+      </div>
       <label>교통비 <span style="font-weight:400;color:var(--muted)">(선택 · 숫자만 입력, 비워두면 표에 넣지 않음)</span></label>
       <input type="text" id="travelInput" inputmode="numeric" placeholder="예: 50000">
       <div class="sub" style="margin-top:6px">총 교육 시간을 넣으면 제안서에 항목별 금액과 합계가 표시됩니다.</div>
@@ -508,13 +764,29 @@ function renderGenerator(){
 
   const val = id => document.getElementById(id).value.trim();
   function updatePreview(){
-    previewWrap.innerHTML = renderProposalPreview({
+    const plan = bdPlan();
+    // 블록으로 조립 중이면 총 교육 시간·제안 구성·AI 이용료는 블록에서 정해짐
+    const hoursEl = document.getElementById('hoursInput'), aiEl = document.getElementById('aiCheck'), tierEl = document.getElementById('tierSelect');
+    hoursEl.disabled = tierEl.disabled = aiEl.disabled = !!plan;
+    if (plan) { hoursEl.value = plan.hours; aiEl.checked = plan.ai; tierEl.value = ''; }
+    document.getElementById('aiAutoNote').style.display = plan ? 'block' : 'none';
+    previewWrap.innerHTML = renderProposalPreview({ plan,
+      rate: val('rateInput'), aiPrice: val('aiPriceInput'),
+      asst: document.getElementById('asstCheck').checked, asstPrice: val('asstPriceInput'),
+      book: document.getElementById('bookCheck').checked, bookPrice: val('bookPriceInput'),
       school: schoolInput.value.trim(), person: personInput.value.trim(),
       target: val('targetInput'), count: val('countInput'), tier: document.getElementById('tierSelect').value,
       hours: val('hoursInput'), date: val('dateInput'), place: val('placeInput'),
       bg: val('bgInput'), ai: document.getElementById('aiCheck').checked, travel: val('travelInput')
     });
   }
+  window.__prUpdate = updatePreview;
+  document.getElementById('builderOn').addEventListener('change', e => {
+    BUILD.on = e.target.checked;
+    try{ localStorage.setItem('moa_pr_builder', BUILD.on ? '1' : '0'); }catch(err){}
+    renderBuilder();
+  });
+  renderBuilder();
   updatePreview();
   document.querySelectorAll('#controlsPanel input, #controlsPanel select, #controlsPanel textarea')
     .forEach(el => el.addEventListener(el.type === 'checkbox' || el.tagName === 'SELECT' ? 'change' : 'input', updatePreview));
@@ -555,6 +827,12 @@ function renderSettings(){
 
       <label>AI 코칭 시스템 이용료 (학생 1인당)</label>
       <input type="text" id="edit-aiprice" value="${escapeHtml(c.aiSystemPricePerStudent || '')}" placeholder="예: 7,500원" style="margin-bottom:14px">
+
+      <label>보조강사료 (1시간 기준 · 선택)</label>
+      <input type="text" id="edit-asstprice" value="${escapeHtml(c.assistantPricePerHour || '')}" placeholder="비워두면 제안서에 '협의'로 표시" style="margin-bottom:14px">
+
+      <label>교재 · 워크북 (학생 1인당 · 선택)</label>
+      <input type="text" id="edit-bookprice" value="${escapeHtml(c.bookPricePerStudent || '')}" placeholder="예: 5,000원" style="margin-bottom:14px">
 
       <div id="tiersEditArea"></div>
 
@@ -626,6 +904,8 @@ function renderSettings(){
       zeroEffortNote: document.getElementById('edit-zeroeffort').value,
       basePricePerHour: document.getElementById('edit-baseprice').value.trim(),
       aiSystemPricePerStudent: document.getElementById('edit-aiprice').value.trim(),
+      assistantPricePerHour: document.getElementById('edit-asstprice').value.trim(),
+      bookPricePerStudent: document.getElementById('edit-bookprice').value.trim(),
       tiers: newTiers,
       commonPoints: document.getElementById('edit-common').value.split('\n').map(s => s.trim()).filter(Boolean),
       flexNote: document.getElementById('edit-flex').value,
