@@ -20,6 +20,8 @@ const DEFAULT_CONFIG = {
   zeroEffortNote: "학생이 직접 참여하고 전문 강사의 검수를 거쳐 완성본까지 제공합니다. 담당 선생님께서는 별도의 진행 관리나 검수 없이 결과물만 확인하시면 됩니다.",
   basePricePerHour: "17만원",
   aiSystemPricePerStudent: "7,500원",
+  assistantPricePerHour: "",   // 보조강사료 (1시간 기준, 선택 · 2026-10-29)
+  bookPricePerStudent: "",     // 교재·워크북 (학생 1인당, 선택)
   tiers: [
     {
       name: "집중형",
