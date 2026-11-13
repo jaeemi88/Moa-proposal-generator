@@ -163,13 +163,13 @@
 
   /* 블록으로 조립하기 (2026-10-29): 단계별 색 블록을 쌓으면 총 교육 시간·시간표·결과물·AI 이용료가 따라옴 */
   .bd{--s0:#8A90A0;--s1:#0F9AA8;--s2:#3E9B4F;--s3:#643DF2;--s4:#295BF2;--brk:#C9CDD6;margin-top:10px}
-  .bd-step{font-size:12px;font-weight:800;color:#D9572B;letter-spacing:.04em;margin:14px 0 6px}
+  .bd-step{font-size:12px;font-weight:800;color:#B8441C;letter-spacing:.04em;margin:14px 0 6px}
   .bd-chips{display:flex;flex-wrap:wrap;gap:8px}
   .bd-chip{font:inherit;border:1.5px solid #D7DAE2;background:#fff;color:#222;border-radius:999px;padding:7px 14px;cursor:pointer;font-weight:600;font-size:13px}
   .bd-chip[aria-pressed="true"]{background:#D9572B;border-color:#D9572B;color:#fff}
   .bd-act{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
   .bd-btn{font:inherit;border:0;background:#D9572B;color:#fff;border-radius:10px;padding:9px 14px;font-weight:700;cursor:pointer;font-size:13px}
-  .bd-btn.line{background:#fff;color:#D9572B;border:1.5px solid #D9572B}
+  .bd-btn.line{background:#fff;color:#B8441C;border:1.5px solid #D9572B}
   .bd-stage-h{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800;color:#444;margin:12px 0 7px}
   .bd-dot{width:10px;height:10px;border-radius:3px;display:inline-block;flex:none}
   .bd-blks{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
@@ -192,7 +192,7 @@
   .bd-limit{position:absolute;left:0;right:0;border-top:2px dashed #1F2433;transition:bottom .35s ease;pointer-events:none}
   .bd-limit span{position:absolute;right:4px;top:-18px;font-size:10px;font-weight:800;background:#fff;padding:0 3px}
   .bd-meter{font-size:12px;font-weight:800;text-align:center}
-  .bd-meter.ok{color:#30A46C}.bd-meter.warn{color:#B7791F}.bd-meter.bad{color:#E5484D}
+  .bd-meter.ok{color:#1E7D50}.bd-meter.warn{color:#8F5A0C}.bd-meter.bad{color:#C8302F}
   .bd-list{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
   .bd-item{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:7px 8px;background:#fff}
   .bd-item .bar{width:6px;align-self:stretch;border-radius:3px;background:var(--c);flex:none}
@@ -707,7 +707,7 @@ function renderGenerator(){
   app.innerHTML = `
     <div class="card no-print" id="controlsPanel">
       <h2>제안서 정보 입력</h2>
-      <label>학교·기관명 <span style="color:#D85A30">*</span></label>
+      <label>학교·기관명 <span style="color:#B8441C">*</span></label>
       <input type="text" id="schoolNameInput" placeholder="예: 구미대학교 물리치료과">
       <label>담당자명 <span style="font-weight:400;color:var(--muted)">(선택)</span></label>
       <input type="text" id="contactPersonInput" placeholder="예: 김진로 선생님">
